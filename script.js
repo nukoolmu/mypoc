@@ -30,6 +30,8 @@ const handleClick = (event) => {
     if (cell.textContent !== '') return;
 
     cell.textContent = currentPlayer;
+    cell.style.backgroundColor = currentPlayer === 'X' ? 'red' : 'green';
+
     if (checkWin()) {
         setTimeout(() => {
             alert(`${currentPlayer} wins!`);
@@ -46,8 +48,12 @@ const handleClick = (event) => {
 };
 
 const resetBoard = () => {
-    cells.forEach(cell => cell.textContent = '');
+    cells.forEach(cell => {
+        cell.textContent = '';
+        cell.style.backgroundColor = ''; // Reset background color
+    });
     currentPlayer = 'X';
 };
 
 cells.forEach(cell => cell.addEventListener('click', handleClick));
+
