@@ -33,3 +33,11 @@ h1 {
 .cell:hover {
     background-color: #e0e0e0;
 }
+
+.cell:red {
+    background-color: #ff6347;
+}
+
+.cell:green {
+    background-color: #3cb371;
+}
