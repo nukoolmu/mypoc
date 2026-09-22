@@ -1,24 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Polygon Portrait - Personal Info</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #38bdf8;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* Layout Container */
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* SVG Portrait Styling */
+    .portrait-svg {
+      width: 320px;
+      height: 400px;
+      overflow: visible;
+    }
+
+    /* Polygon Piece Default States & Transitions */
+    .poly-part {
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  filter 0.3s ease, 
+                  opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    .poly-part:hover {
+      filter: drop-shadow(0px 8px 12px rgba(56, 189, 248, 0.5));
+      opacity: 0.95;
+    }
+
+    /* Exploded Positions on Hover */
+    #head-part:hover {
+      transform: translateY(-25px) scale(1.05);
+    }
+
+    #left-face-part:hover {
+      transform: translateX(-30px) translateY(-10px) scale(1.05);
+    }
+
+    #right-face-part:hover {
+      transform: translateX(30px) translateY(-10px) scale(1.05);
+    }
+
+    #body-part:hover {
+      transform: translateY(25px) scale(1.05);
+    }
+
+    /* Dynamic Detail Menu / Tooltip */
+    .info-card {
+      position: absolute;
+      width: 260px;
+      padding: 1.25rem;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+    }
+
+    .info-card.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.3rem;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .info-card ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Default Info State */
+    #default-info {
+      position: absolute;
+      bottom: 20px;
+      color: #64748b;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <h1>Peach Vs Ra</h1>
-    <div class="board">
-        <div class="cell" data-index="0"></div>
-        <div class="cell" data-index="1"></div>
-        <div class="cell" data-index="2"></div>
-        <div class="cell" data-index="3"></div>
-        <div class="cell" data-index="4"></div>
-        <div class="cell" data-index="5"></div>
-        <div class="cell" data-index="6"></div>
-        <div class="cell" data-index="7"></div>
-        <div class="cell" data-index="8"></div>
+
+  <header>
+    <h1>PERSONAL PORTFOLIO</h1>
+    <p>วางเมาส์บนชิ้นส่วน Polygon เพื่อสำรวจข้อมูลตัวตน</p>
+  </header>
+
+  <div class="container">
+    <!-- Low-Poly SVG Graphic -->
+    <svg class="portrait-svg" viewBox="0 0 300 400">
+      <defs>
+        <!-- Gradients for Polygon Depth -->
+        <linearGradient id="grad-head" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38bdf8" />
+          <stop offset="100%" stop-color="#1e40af" />
+        </linearGradient>
+        <linearGradient id="grad-face-l" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#60a5fa" />
+          <stop offset="100%" stop-color="#2563eb" />
+        </linearGradient>
+        <linearGradient id="grad-face-r" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#93c5fd" />
+          <stop offset="100%" stop-color="#1d4ed8" />
+        </linearGradient>
+        <linearGradient id="grad-body" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#818cf8" />
+          <stop offset="100%" stop-color="#3730a3" />
+        </linearGradient>
+      </defs>
+
+      <!-- Head / Mind Part -->
+      <g id="head-part" class="poly-part" data-info="head-info">
+        <polygon points="150,30 210,80 150,110 90,80" fill="url(#grad-head)" />
+      </g>
+
+      <!-- Left Face / Vision & Passion -->
+      <g id="left-face-part" class="poly-part" data-info="vision-info">
+        <polygon points="90,80 150,110 140,210 70,160" fill="url(#grad-face-l)" />
+      </g>
+
+      <!-- Right Face / Technical Skills -->
+      <g id="right-face-part" class="poly-part" data-info="skill-info">
+        <polygon points="150,110 210,80 230,160 160,210" fill="url(#grad-face-r)" />
+      </g>
+
+      <!-- Body & Core / Experience -->
+      <g id="body-part" class="poly-part" data-info="experience-info">
+        <polygon points="140,210 160,210 250,370 50,370" fill="url(#grad-body)" />
+      </g>
+    </svg>
+
+    <!-- Detail Menu Cards (Hidden by default, shown on hover) -->
+    <div id="head-info" class="info-card">
+      <h3>Mindset & Goals</h3>
+      <p>มุ่งเน้นการพัฒนาตัวเอง ชอบแก้ปัญหาที่ท้าทาย และหลงใหลในเทคโนโลยีใหม่ๆ</p>
+      <ul>
+        <li>Creative Problem Solving</li>
+        <li>Continuous Learning</li>
+      </ul>
     </div>
-    <script src="script.js"></script>
+
+    <div id="vision-info" class="info-card">
+      <h3>Vision & Passions</h3>
+      <p>สนใจด้าน UX/UI Design การออกแบบที่เน้นผู้ใช้งานเป็นศูนย์กลาง และการสร้าง Micro-interactions</p>
+    </div>
+
+    <div id="skill-info" class="info-card">
+      <h3>Technical Skills</h3>
+      <p>ทักษะความเชี่ยวชาญด้านการพัฒนาเว็บและเครื่องมือต่างๆ</p>
+      <ul>
+        <li>HTML5 / CSS3 / JavaScript (ES6+)</li>
+        <li>React.js / Vue.js</li>
+        <li>Figma / SVG Animation</li>
+      </ul>
+    </div>
+
+    <div id="experience-info" class="info-card">
+      <h3>Core Experience</h3>
+      <p>ประสบการณ์การทำงานและโปรเจกต์สำคัญที่เคยดูแล</p>
+      <ul>
+        <li>Senior Web Designer (3+ Years)</li>
+        <li>Design System Development</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="default-info">นำเมาส์ไปชี้ที่แต่ละส่วนเพื่ออ่านรายละเอียด</div>
+
+  <script>
+    // JavaScript Interactive Positioning logic
+    const parts = document.querySelectorAll('.poly-part');
+    const cards = document.querySelectorAll('.info-card');
+
+    parts.forEach(part => {
+      part.addEventListener('mouseenter', (e) => {
+        const targetId = part.getAttribute('data-info');
+        const targetCard = document.getElementById(targetId);
+        
+        // Hide all cards first
+        cards.forEach(card => card.classList.remove('active'));
+
+        if (targetCard) {
+          // Calculate SVG bounding box to position card dynamic
+          const rect = part.getBoundingClientRect();
+          const containerRect = document.querySelector('.container').getBoundingClientRect();
+
+          // Position card slightly offset from the hovered polygon
+          let left = rect.left - containerRect.left + (rect.width / 2);
+          let top = rect.top - containerRect.top + (rect.height / 2) - 50;
+
+          // Align left or right based on relative position
+          if (left > containerRect.width / 2) {
+            targetCard.style.left = `${left + 40}px`;
+          } else {
+            targetCard.style.left = `${left - 280}px`;
+          }
+
+          targetCard.style.top = `${top}px`;
+          targetCard.classList.add('active');
+        }
+      });
+
+      part.addEventListener('mouseleave', () => {
+        cards.forEach(card => card.classList.remove('active'));
+      });
+    });
+  </script>
 </body>
 </html>
