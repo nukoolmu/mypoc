@@ -55,11 +55,23 @@
 				stroke 260ms ease;
 			cursor: pointer;
 			outline: none;
+			fill: transparent !important;
+		}
+
+		.zone-group[data-zone="glasses"] .poly-part {
+			stroke: transparent !important;
+		}
+
+		.zone-group[data-zone="glasses"] .poly-part:hover,
+		.zone-group[data-zone="glasses"] .poly-part:focus-visible,
+		.zone-group[data-zone="glasses"] .poly-part.is-active {
+			stroke: rgba(103, 232, 249, 0.75) !important;
 		}
 
 		.poly-part:hover,
 		.poly-part:focus-visible,
 		.poly-part.is-active {
+			fill: rgba(255, 255, 255, 0.06) !important;
 			transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(1.045);
 			filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.95)) drop-shadow(0 0 28px rgba(34, 211, 238, 0.38));
 			stroke: rgba(103, 232, 249, 0.92);
@@ -151,6 +163,7 @@
 						</defs>
 
 						<rect x="36" y="28" width="648" height="804" rx="38" fill="none"></rect>
+						<image href="images/nukoolmu-profile.png" x="52" y="40" width="616" height="772" preserveAspectRatio="xMidYMid meet" opacity="0.95"></image>
 						<circle cx="360" cy="360" r="238" fill="rgba(17,24,39,0.03)"></circle>
 
 						<g class="zone-group" data-zone="hair">
@@ -220,7 +233,7 @@
 						<p class="text-sm font-medium">ถามอะไรได้เกี่ยวกับ Nukool.M เช่น</p>
 					</div>
 					<div class="flex flex-1 gap-2">
-						<input id="chat-input" type="text" placeholder="ถามอะไรได้เกี่ยวกับ Alexander เช่น..." class="min-w-0 flex-1 rounded-2xl border border-white/10 bg-[#12172c] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-indigo-400/40 focus:ring-2 focus:ring-indigo-400/20" />
+						<input id="chat-input" type="text" placeholder="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น..." class="min-w-0 flex-1 rounded-2xl border border-white/10 bg-[#12172c] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-indigo-400/40 focus:ring-2 focus:ring-indigo-400/20" />
 						<button id="chat-send" class="rounded-2xl bg-indigo-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400 active:scale-[0.99]">ถาม →</button>
 					</div>
 				</div>
@@ -262,6 +275,15 @@
 			let zoneData = {};
 			let profile = {};
 			let faqList = [];
+
+			function normalizePolygonOverlay() {
+				document.querySelectorAll('.poly-part').forEach((part) => {
+					part.style.fill = 'transparent';
+					part.style.stroke = part.closest('[data-zone="glasses"]') ? 'transparent' : 'rgba(255,255,255,0.10)';
+					part.style.strokeWidth = part.closest('[data-zone="glasses"]') ? '0' : '1.1';
+					part.style.opacity = part.closest('[data-zone="glasses"]') ? '0.12' : '0.18';
+				});
+			}
 
 			function openModal(zoneKey) {
 				const zone = zoneData[zoneKey];
@@ -316,7 +338,7 @@
 					return `${profile.name || 'Profile'} · ${profile.role || ''}. ${profile.summary || ''}`;
 				}
 
-				return 'ฉันยังไม่พบคำตอบตรง ๆ จาก YAML ลองใช้คำว่า hair, glasses, face, collar, shirt, profile, หรือ summary นะครับ';
+				return 'ฉันยังไม่พบคำตอบตรง ๆ จากบันทึกของ profile ลองใช้คำว่า hair, glasses, face, collar, shirt, profile, หรือ summary นะครับ';
 			}
 
 			function renderChatAnswer(question) {
@@ -330,6 +352,7 @@
 			}
 
 			function wireInteractions() {
+				normalizePolygonOverlay();
 				zoneGroups.forEach((group) => {
 					const zoneKey = group.dataset.zone;
 					group.addEventListener('click', (event) => {
