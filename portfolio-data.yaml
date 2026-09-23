@@ -1,0 +1,41 @@
+profile:
+  name: "Arin Nova"
+  role: "Frontend Portfolio Concept"
+  summary: "A minimalist portrait built from symmetric low-poly geometry, designed to demonstrate motion, interaction, and data-driven UI in a single HTML file."
+
+zones:
+  hair:
+    title: "Hair"
+    description: "The hair zone is intentionally angular and layered to create silhouette clarity and visual rhythm. The exploded hover animation gives the top crown section a sense of floating depth."
+    note: "Use this section when you want to communicate motion, style, and a bold first impression."
+    keywords: ["hair", "style", "motion", "top", "crown"]
+  glasses:
+    title: "Glasses"
+    description: "The glasses section adds precision and balance to the portrait. The narrow bridge and lens geometry are optimized for a clean, technical look with a subtle cyan glow."
+    note: "This zone suggests focus, detail orientation, and a modern analytical personality."
+    keywords: ["glasses", "lens", "focus", "vision", "detail"]
+  face:
+    title: "Face"
+    description: "The face zone is the emotional core of the portrait. Faceted planes define cheeks, nose, chin, and shadows while keeping the overall structure symmetrical."
+    note: "The face is where brand character and human warmth live in the composition."
+    keywords: ["face", "personality", "expression", "skin", "identity"]
+  collar:
+    title: "Collar"
+    description: "The collar frames the lower face and transitions the portrait into a professional outfit. The folded geometry creates a crisp formal edge."
+    note: "This section signals structure, polish, and attention to presentation."
+    keywords: ["collar", "formal", "shirt", "frame", "structure"]
+  shirt:
+    title: "Shirt"
+    description: "The shirt forms the visual base of the portrait and anchors the entire composition. Its broader facets add weight, depth, and a calm modern palette."
+    note: "Use this section to express stability, professionalism, and design discipline."
+    keywords: ["shirt", "outfit", "torso", "base", "professional"]
+
+faqs:
+  - question: "what is this page"
+    answer: "This is a single-file portfolio prototype that combines an interactive polygon portrait, a detail modal, and a tiny chatbot powered by one shared YAML dataset."
+  - question: "how does hover work"
+    answer: "Each polygon piece has a small custom translation vector, so hovering creates an exploded-view effect with cyan glow and smooth transitions."
+  - question: "how do i open details"
+    answer: "Click any polygon area. The modal reads content from the YAML database and displays the matching zone information."
+  - question: "what can the chatbot answer"
+    answer: "It can answer questions about the portrait zones, profile summary, and the interaction behavior using keyword matching against the YAML data."

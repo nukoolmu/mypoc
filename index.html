@@ -1,270 +1,382 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Polygon Portrait - Personal Info</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Interactive Portfolio Portrait</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+	<style>
+		:root {
+			color-scheme: dark;
+		}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
-    }
+		body {
+			background:
+				radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 36%),
+				radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.12), transparent 28%),
+				linear-gradient(180deg, #050816 0%, #070b14 45%, #04060d 100%);
+		}
 
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+		.glass-panel {
+			background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(8, 13, 26, 0.7));
+			border: 1px solid rgba(148, 163, 184, 0.16);
+			backdrop-filter: blur(18px);
+			box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+		}
 
-    header h1 {
-      font-size: 2.2rem;
-      color: #38bdf8;
-    }
+		.shadow-glow {
+			box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25), 0 0 28px rgba(34, 211, 238, 0.18);
+		}
 
-    header p {
-      color: #94a3b8;
-      font-size: 0.95rem;
-    }
+		.portrait-wrap {
+			overflow: visible;
+			filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.32));
+		}
 
-    /* Layout Container */
-    .container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      height: 500px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+		.poly-part {
+			transform-box: fill-box;
+			transform-origin: center;
+			transition:
+				transform 260ms cubic-bezier(.2,.8,.2,1),
+				filter 260ms ease,
+				opacity 260ms ease,
+				stroke 260ms ease;
+			cursor: pointer;
+			outline: none;
+		}
 
-    /* SVG Portrait Styling */
-    .portrait-svg {
-      width: 320px;
-      height: 400px;
-      overflow: visible;
-    }
+		.poly-part:hover,
+		.poly-part:focus-visible,
+		.poly-part.is-active {
+			transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(1.045);
+			filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.95)) drop-shadow(0 0 28px rgba(34, 211, 238, 0.38));
+			stroke: rgba(103, 232, 249, 0.92);
+			opacity: 1;
+		}
 
-    /* Polygon Piece Default States & Transitions */
-    .poly-part {
-      cursor: pointer;
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  filter 0.3s ease, 
-                  opacity 0.3s ease;
-      transform-origin: center;
-    }
+		.zone-group:hover .poly-part {
+			opacity: 0.97;
+		}
 
-    .poly-part:hover {
-      filter: drop-shadow(0px 8px 12px rgba(56, 189, 248, 0.5));
-      opacity: 0.95;
-    }
+		.zone-glow {
+			filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.2));
+		}
 
-    /* Exploded Positions on Hover */
-    #head-part:hover {
-      transform: translateY(-25px) scale(1.05);
-    }
+		.modal-backdrop {
+			background: rgba(2, 6, 23, 0.68);
+			backdrop-filter: blur(10px);
+		}
 
-    #left-face-part:hover {
-      transform: translateX(-30px) translateY(-10px) scale(1.05);
-    }
+		.fade-in {
+			animation: fadeIn 180ms ease-out;
+		}
 
-    #right-face-part:hover {
-      transform: translateX(30px) translateY(-10px) scale(1.05);
-    }
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(8px) scale(0.98); }
+			to { opacity: 1; transform: translateY(0) scale(1); }
+		}
 
-    #body-part:hover {
-      transform: translateY(25px) scale(1.05);
-    }
-
-    /* Dynamic Detail Menu / Tooltip */
-    .info-card {
-      position: absolute;
-      width: 260px;
-      padding: 1.25rem;
-      background: rgba(30, 41, 59, 0.85);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 10;
-    }
-
-    .info-card.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .info-card h3 {
-      font-size: 1.2rem;
-      color: #38bdf8;
-      margin-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 0.3rem;
-    }
-
-    .info-card p {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      line-height: 1.4;
-    }
-
-    .info-card ul {
-      margin-top: 0.5rem;
-      padding-left: 1.2rem;
-      font-size: 0.85rem;
-      color: #94a3b8;
-    }
-
-    /* Default Info State */
-    #default-info {
-      position: absolute;
-      bottom: 20px;
-      color: #64748b;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-  </style>
+		.chat-answer {
+			line-height: 1.7;
+		}
+	</style>
 </head>
-<body>
+<body class="min-h-screen text-slate-100">
+	<main class="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-6 sm:px-6 lg:px-8">
+		<section class="glass-panel rounded-[2rem] px-5 py-6 sm:px-8 sm:py-8">
+			<div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+				<div class="max-w-2xl space-y-4">
+					<div class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-cyan-200">
+						Interactive SVG Portfolio
+					</div>
+					<h1 class="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+						Modern Dark Mode Portfolio with Low-Poly Interaction
+					</h1>
+					<p class="max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+						Hover to explode each polygon section, click to open a detail modal, and ask the chatbot about the same YAML dataset below.
+					</p>
+				</div>
+				<div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 shadow-glow">
+					<p class="font-medium text-cyan-200">Controls</p>
+					<p>Hover polygons · Click to open details · Ask chatbot questions</p>
+				</div>
+			</div>
 
-  <header>
-    <h1>PERSONAL PORTFOLIO</h1>
-    <p>วางเมาส์บนชิ้นส่วน Polygon เพื่อสำรวจข้อมูลตัวตน</p>
-  </header>
+			<div class="mt-8 grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+				<div class="rounded-[1.75rem] border border-white/10 bg-slate-950/35 p-4 sm:p-6">
+					<div class="mb-4 flex items-center justify-between">
+						<div>
+							<h2 class="text-lg font-semibold text-white">Symmetric Polygon Portrait</h2>
+							<p class="text-sm text-slate-400">Five zones: hair, glasses, face, collar, shirt</p>
+						</div>
+						<div class="h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.9)]"></div>
+					</div>
 
-  <div class="container">
-    <!-- Low-Poly SVG Graphic -->
-    <svg class="portrait-svg" viewBox="0 0 300 400">
-      <defs>
-        <!-- Gradients for Polygon Depth -->
-        <linearGradient id="grad-head" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#38bdf8" />
-          <stop offset="100%" stop-color="#1e40af" />
-        </linearGradient>
-        <linearGradient id="grad-face-l" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#60a5fa" />
-          <stop offset="100%" stop-color="#2563eb" />
-        </linearGradient>
-        <linearGradient id="grad-face-r" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#93c5fd" />
-          <stop offset="100%" stop-color="#1d4ed8" />
-        </linearGradient>
-        <linearGradient id="grad-body" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#818cf8" />
-          <stop offset="100%" stop-color="#3730a3" />
-        </linearGradient>
-      </defs>
+					<svg class="portrait-wrap w-full max-w-[760px]" viewBox="0 0 720 760" role="img" aria-label="Low poly portrait illustration">
+						<defs>
+							<linearGradient id="bgGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#0f172a" stop-opacity="0.15" />
+								<stop offset="100%" stop-color="#020617" stop-opacity="0.95" />
+							</linearGradient>
+							<linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#f8c7a4" />
+								<stop offset="52%" stop-color="#e9a781" />
+								<stop offset="100%" stop-color="#c87958" />
+							</linearGradient>
+							<linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#1f2937" />
+								<stop offset="100%" stop-color="#0f172a" />
+							</linearGradient>
+							<linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#143c6d" />
+								<stop offset="100%" stop-color="#071525" />
+							</linearGradient>
+							<linearGradient id="collarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#d9e7f7" />
+								<stop offset="100%" stop-color="#aebed1" />
+							</linearGradient>
+						</defs>
 
-      <!-- Head / Mind Part -->
-      <g id="head-part" class="poly-part" data-info="head-info">
-        <polygon points="150,30 210,80 150,110 90,80" fill="url(#grad-head)" />
-      </g>
+						<rect x="70" y="40" width="580" height="680" rx="44" fill="url(#bgGlow)" opacity="0.95"></rect>
+						<circle cx="360" cy="350" r="220" fill="rgba(34,211,238,0.05)"></circle>
 
-      <!-- Left Face / Vision & Passion -->
-      <g id="left-face-part" class="poly-part" data-info="vision-info">
-        <polygon points="90,80 150,110 140,210 70,160" fill="url(#grad-face-l)" />
-      </g>
+						<g class="zone-group" data-zone="hair">
+							<polygon class="poly-part" style="fill:url(#hairGrad);stroke:rgba(148,163,184,0.22);stroke-width:2;--dx:-6px;--dy:-12px" points="250,130 300,92 360,80 420,92 470,130 452,178 360,198 268,178"></polygon>
+							<polygon class="poly-part" style="fill:#182033;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:6px;--dy:-10px" points="268,178 360,198 452,178 466,245 360,226 254,245"></polygon>
+							<polygon class="poly-part" style="fill:#111827;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:-8px;--dy:4px" points="254,245 360,226 466,245 434,300 360,290 286,300"></polygon>
+							<polygon class="poly-part" style="fill:#0f172a;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:9px;--dy:6px" points="286,300 360,290 434,300 410,350 360,336 310,350"></polygon>
+							<polygon class="poly-part" style="fill:#1e293b;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:-4px;--dy:10px" points="220,178 268,178 254,245 204,232 190,198"></polygon>
+							<polygon class="poly-part" style="fill:#1e293b;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:4px;--dy:10px" points="520,178 472,178 466,245 516,232 530,198"></polygon>
+						</g>
 
-      <!-- Right Face / Technical Skills -->
-      <g id="right-face-part" class="poly-part" data-info="skill-info">
-        <polygon points="150,110 210,80 230,160 160,210" fill="url(#grad-face-r)" />
-      </g>
+						<g class="zone-group" data-zone="glasses">
+							<polygon class="poly-part" style="fill:rgba(7,13,24,0.78);stroke:rgba(103,232,249,0.28);stroke-width:2;--dx:-4px;--dy:2px" points="250,280 310,270 322,308 258,316"></polygon>
+							<polygon class="poly-part" style="fill:rgba(7,13,24,0.78);stroke:rgba(103,232,249,0.28);stroke-width:2;--dx:4px;--dy:2px" points="410,270 470,280 462,316 398,308"></polygon>
+							<polygon class="poly-part" style="fill:none;stroke:rgba(103,232,249,0.55);stroke-width:3;--dx:0px;--dy:0px" points="322,302 398,302"></polygon>
+							<polygon class="poly-part" style="fill:rgba(34,211,238,0.08);stroke:rgba(103,232,249,0.22);stroke-width:1.5;--dx:0px;--dy:4px" points="252,278 300,256 316,274 258,286"></polygon>
+							<polygon class="poly-part" style="fill:rgba(34,211,238,0.08);stroke:rgba(103,232,249,0.22);stroke-width:1.5;--dx:0px;--dy:4px" points="420,256 468,278 462,286 404,274"></polygon>
+						</g>
 
-      <!-- Body & Core / Experience -->
-      <g id="body-part" class="poly-part" data-info="experience-info">
-        <polygon points="140,210 160,210 250,370 50,370" fill="url(#grad-body)" />
-      </g>
-    </svg>
+						<g class="zone-group" data-zone="face">
+							<polygon class="poly-part" style="fill:url(#skinGrad);stroke:rgba(255,255,255,0.14);stroke-width:2;--dx:-3px;--dy:3px" points="300,200 360,170 420,200 446,268 438,370 392,436 360,458 328,436 282,370 274,268"></polygon>
+							<polygon class="poly-part" style="fill:#d58f6e;stroke:rgba(255,255,255,0.12);stroke-width:1.8;--dx:-4px;--dy:6px" points="300,200 340,194 330,260 274,268"></polygon>
+							<polygon class="poly-part" style="fill:#e7a885;stroke:rgba(255,255,255,0.12);stroke-width:1.8;--dx:4px;--dy:6px" points="420,200 380,194 390,260 446,268"></polygon>
+							<polygon class="poly-part" style="fill:#cf7f5d;stroke:rgba(255,255,255,0.12);stroke-width:1.8;--dx:0px;--dy:4px" points="330,260 390,260 402,308 360,326 318,308"></polygon>
+							<polygon class="poly-part" style="fill:#b96543;stroke:rgba(255,255,255,0.08);stroke-width:1.5;--dx:0px;--dy:7px" points="318,308 360,326 402,308 392,350 360,372 328,350"></polygon>
+							<polygon class="poly-part" style="fill:#f0b693;stroke:rgba(255,255,255,0.08);stroke-width:1.5;--dx:-2px;--dy:10px" points="328,350 360,372 392,350 382,394 360,410 338,394"></polygon>
+							<polygon class="poly-part" style="fill:#6f3528;stroke:rgba(255,255,255,0.08);stroke-width:1.2;--dx:0px;--dy:8px" points="344,382 360,392 376,382 360,404"></polygon>
+						</g>
 
-    <!-- Detail Menu Cards (Hidden by default, shown on hover) -->
-    <div id="head-info" class="info-card">
-      <h3>Mindset & Goals</h3>
-      <p>มุ่งเน้นการพัฒนาตัวเอง ชอบแก้ปัญหาที่ท้าทาย และหลงใหลในเทคโนโลยีใหม่ๆ</p>
-      <ul>
-        <li>Creative Problem Solving</li>
-        <li>Continuous Learning</li>
-      </ul>
-    </div>
+						<g class="zone-group" data-zone="collar">
+							<polygon class="poly-part" style="fill:url(#collarGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:-7px;--dy:12px" points="282,458 340,426 360,470 326,512 270,476"></polygon>
+							<polygon class="poly-part" style="fill:url(#collarGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:7px;--dy:12px" points="438,458 380,426 360,470 394,512 450,476"></polygon>
+							<polygon class="poly-part" style="fill:#d5e1ef;stroke:rgba(255,255,255,0.14);stroke-width:1.6;--dx:0px;--dy:10px" points="340,426 360,470 326,512 300,462"></polygon>
+							<polygon class="poly-part" style="fill:#c2d1e3;stroke:rgba(255,255,255,0.14);stroke-width:1.6;--dx:0px;--dy:10px" points="380,426 360,470 394,512 420,462"></polygon>
+						</g>
 
-    <div id="vision-info" class="info-card">
-      <h3>Vision & Passions</h3>
-      <p>สนใจด้าน UX/UI Design การออกแบบที่เน้นผู้ใช้งานเป็นศูนย์กลาง และการสร้าง Micro-interactions</p>
-    </div>
+						<g class="zone-group" data-zone="shirt">
+							<polygon class="poly-part" style="fill:url(#shirtGrad);stroke:rgba(56,189,248,0.15);stroke-width:2;--dx:0px;--dy:14px" points="260,490 326,512 360,560 394,512 460,490 510,620 210,620"></polygon>
+							<polygon class="poly-part" style="fill:#123055;stroke:rgba(56,189,248,0.14);stroke-width:1.6;--dx:-8px;--dy:20px" points="210,620 260,490 326,512 298,648 236,688 190,650"></polygon>
+							<polygon class="poly-part" style="fill:#0c1f36;stroke:rgba(56,189,248,0.14);stroke-width:1.6;--dx:8px;--dy:20px" points="510,620 460,490 394,512 422,648 484,688 530,650"></polygon>
+							<polygon class="poly-part" style="fill:#0f2847;stroke:rgba(56,189,248,0.14);stroke-width:1.6;--dx:0px;--dy:18px" points="298,648 360,560 422,648 360,716"></polygon>
+						</g>
+					</svg>
+				</div>
 
-    <div id="skill-info" class="info-card">
-      <h3>Technical Skills</h3>
-      <p>ทักษะความเชี่ยวชาญด้านการพัฒนาเว็บและเครื่องมือต่างๆ</p>
-      <ul>
-        <li>HTML5 / CSS3 / JavaScript (ES6+)</li>
-        <li>React.js / Vue.js</li>
-        <li>Figma / SVG Animation</li>
-      </ul>
-    </div>
+				<aside class="space-y-4">
+					<div class="rounded-[1.5rem] border border-white/10 bg-slate-950/35 p-5">
+						<h3 class="text-base font-semibold text-white">Live Status</h3>
+						<p class="mt-2 text-sm leading-6 text-slate-400">
+							Click any polygon zone to view context-aware details in a modal. The data source is a single YAML block shared with the chatbot.
+						</p>
+					</div>
 
-    <div id="experience-info" class="info-card">
-      <h3>Core Experience</h3>
-      <p>ประสบการณ์การทำงานและโปรเจกต์สำคัญที่เคยดูแล</p>
-      <ul>
-        <li>Senior Web Designer (3+ Years)</li>
-        <li>Design System Development</li>
-      </ul>
-    </div>
-  </div>
+					<div class="rounded-[1.5rem] border border-white/10 bg-slate-950/35 p-5">
+						<h3 class="text-base font-semibold text-white">Hints</h3>
+						<ul class="mt-3 space-y-2 text-sm text-slate-400">
+							<li>• Hair = visual identity and motion</li>
+							<li>• Glasses = precision and focus</li>
+							<li>• Face = expression and personality</li>
+							<li>• Collar + shirt = structure and tone</li>
+						</ul>
+					</div>
+				</aside>
+			</div>
 
-  <div id="default-info">นำเมาส์ไปชี้ที่แต่ละส่วนเพื่ออ่านรายละเอียด</div>
+			<section class="mt-8 rounded-[1.75rem] border border-white/10 bg-slate-950/40 p-5 sm:p-6">
+				<div class="mb-4 flex items-center justify-between gap-3">
+					<div>
+						<h2 class="text-lg font-semibold text-white">Minimal Chatbot</h2>
+						<p class="text-sm text-slate-400">Ask about hair, glasses, face, collar, shirt, skills, or profile</p>
+					</div>
+					<div class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">YAML-backed</div>
+				</div>
 
-  <script>
-    // JavaScript Interactive Positioning logic
-    const parts = document.querySelectorAll('.poly-part');
-    const cards = document.querySelectorAll('.info-card');
+				<div class="flex flex-col gap-3 sm:flex-row">
+					<input id="chat-input" type="text" placeholder="Ask: What does the shirt section mean?" class="w-full flex-1 rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-cyan-400/40 focus:ring-2 focus:ring-cyan-400/20" />
+					<button id="chat-send" class="rounded-2xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 active:scale-[0.99]">Send</button>
+				</div>
+				<div id="chat-output" class="chat-answer mt-4 min-h-[72px] rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-slate-200"></div>
+			</section>
+		</section>
+	</main>
 
-    parts.forEach(part => {
-      part.addEventListener('mouseenter', (e) => {
-        const targetId = part.getAttribute('data-info');
-        const targetCard = document.getElementById(targetId);
-        
-        // Hide all cards first
-        cards.forEach(card => card.classList.remove('active'));
+	<div id="modal-backdrop" class="modal-backdrop fixed inset-0 z-40 hidden items-center justify-center px-4 py-6">
+		<div id="modal-panel" class="fade-in relative w-full max-w-2xl rounded-[1.75rem] border border-white/10 bg-slate-950/95 p-6 shadow-2xl shadow-cyan-950/30">
+			<button id="modal-close" class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-lg text-slate-300 transition hover:bg-white/10 hover:text-white" aria-label="Close modal">×</button>
+			<p class="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Zone detail</p>
+			<h3 id="modal-title" class="mt-2 text-2xl font-semibold text-white"></h3>
+			<p id="modal-description" class="mt-4 text-sm leading-7 text-slate-300"></p>
+			<div class="mt-6 grid gap-3 sm:grid-cols-2">
+				<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+					<p class="text-xs uppercase tracking-[0.3em] text-slate-500">Keywords</p>
+					<p id="modal-tags" class="mt-2 text-sm text-slate-200"></p>
+				</div>
+				<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+					<p class="text-xs uppercase tracking-[0.3em] text-slate-500">Note</p>
+					<p id="modal-note" class="mt-2 text-sm text-slate-200"></p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        if (targetCard) {
-          // Calculate SVG bounding box to position card dynamic
-          const rect = part.getBoundingClientRect();
-          const containerRect = document.querySelector('.container').getBoundingClientRect();
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const modalBackdrop = document.getElementById('modal-backdrop');
+			const modalTitle = document.getElementById('modal-title');
+			const modalDescription = document.getElementById('modal-description');
+			const modalTags = document.getElementById('modal-tags');
+			const modalNote = document.getElementById('modal-note');
+			const chatInput = document.getElementById('chat-input');
+			const chatSend = document.getElementById('chat-send');
+			const chatOutput = document.getElementById('chat-output');
+			const zoneGroups = document.querySelectorAll('.zone-group');
+			let zoneData = {};
+			let profile = {};
+			let faqList = [];
 
-          // Position card slightly offset from the hovered polygon
-          let left = rect.left - containerRect.left + (rect.width / 2);
-          let top = rect.top - containerRect.top + (rect.height / 2) - 50;
+			function openModal(zoneKey) {
+				const zone = zoneData[zoneKey];
+				if (!zone) return;
 
-          // Align left or right based on relative position
-          if (left > containerRect.width / 2) {
-            targetCard.style.left = `${left + 40}px`;
-          } else {
-            targetCard.style.left = `${left - 280}px`;
-          }
+				modalTitle.textContent = zone.title;
+				modalDescription.textContent = zone.description;
+				modalTags.textContent = (zone.keywords || []).join(' · ');
+				modalNote.textContent = zone.note;
 
-          targetCard.style.top = `${top}px`;
-          targetCard.classList.add('active');
-        }
-      });
+				modalBackdrop.classList.remove('hidden');
+				modalBackdrop.classList.add('flex');
+			}
 
-      part.addEventListener('mouseleave', () => {
-        cards.forEach(card => card.classList.remove('active'));
-      });
-    });
-  </script>
+			function closeModal() {
+				modalBackdrop.classList.add('hidden');
+				modalBackdrop.classList.remove('flex');
+			}
+
+			function normalize(text) {
+				return String(text || '').toLowerCase().trim();
+			}
+
+			function scoreMatch(query, keywords = []) {
+				const normalizedQuery = normalize(query);
+				return keywords.reduce((score, keyword) => score + (normalizedQuery.includes(normalize(keyword)) ? 1 : 0), 0);
+			}
+
+			function answerQuery(rawQuery) {
+				const query = normalize(rawQuery);
+				if (!query) {
+					return 'พิมพ์คำถามสั้น ๆ ได้เลย เช่น “เล่าเรื่อง face zone” หรือ “what is this page?”';
+				}
+
+				if (/(hello|hi|สวัสดี|hey)/i.test(query)) {
+					return `สวัสดีครับ ฉันคือ chatbot เล็ก ๆ ของ ${profile.name || 'portfolio นี้'} ลองถามเรื่อง hair, glasses, face, collar, shirt ได้เลย`;
+				}
+
+				const exactFaq = faqList.find((faq) => query.includes(normalize(faq.question)) || normalize(faq.question).includes(query));
+				if (exactFaq) return exactFaq.answer;
+
+				const zoneEntries = Object.entries(zoneData)
+					.map(([key, zone]) => ({ key, zone, score: scoreMatch(query, [key, zone.title, ...(zone.keywords || [])]) }))
+					.sort((a, b) => b.score - a.score);
+
+				const bestZone = zoneEntries[0];
+				if (bestZone && bestZone.score > 0) {
+					return `${bestZone.zone.title}: ${bestZone.zone.description} ${bestZone.zone.note}`;
+				}
+
+				if (query.includes('profile') || query.includes('summary') || query.includes('about')) {
+					return `${profile.name || 'Profile'} · ${profile.role || ''}. ${profile.summary || ''}`;
+				}
+
+				return 'ฉันยังไม่พบคำตอบตรง ๆ จาก YAML ลองใช้คำว่า hair, glasses, face, collar, shirt, profile, หรือ summary นะครับ';
+			}
+
+			function renderChatAnswer(question) {
+				const answer = answerQuery(question);
+				chatOutput.innerHTML = `
+					<div class="space-y-2">
+						<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
+						<p>${answer}</p>
+					</div>
+				`;
+			}
+
+			function wireInteractions() {
+				zoneGroups.forEach((group) => {
+					const zoneKey = group.dataset.zone;
+					group.addEventListener('click', (event) => {
+						const target = event.target;
+						if (target && target.classList.contains('poly-part')) {
+							document.querySelectorAll('.poly-part.is-active').forEach((part) => part.classList.remove('is-active'));
+							target.classList.add('is-active');
+							openModal(zoneKey);
+						}
+					});
+				});
+
+				modalBackdrop.addEventListener('click', (event) => {
+					if (event.target === modalBackdrop) closeModal();
+				});
+
+				document.getElementById('modal-close').addEventListener('click', closeModal);
+				document.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape') closeModal();
+				});
+
+				function sendChat() {
+					renderChatAnswer(chatInput.value);
+				}
+
+				chatSend.addEventListener('click', sendChat);
+				chatInput.addEventListener('keydown', (event) => {
+					if (event.key === 'Enter') sendChat();
+				});
+
+				renderChatAnswer('');
+			}
+
+			async function loadYamlData() {
+				try {
+					const response = await fetch('portfolio-data.yaml', { cache: 'no-store' });
+					if (!response.ok) {
+						throw new Error(`Failed to load YAML: ${response.status}`);
+					}
+
+					const yamlText = await response.text();
+					const data = jsyaml.load(yamlText);
+					zoneData = data?.zones ?? {};
+					profile = data?.profile ?? {};
+					faqList = Array.isArray(data?.faqs) ? data.faqs : [];
+					wireInteractions();
+				} catch (error) {
+					chatOutput.innerHTML = '<p class="text-rose-300">ไม่สามารถโหลด `portfolio-data.yaml` ได้ กรุณาเปิดผ่าน local server เช่น Live Server แทนการเปิดไฟล์ตรง ๆ</p>';
+					console.error(error);
+				}
+			}
+
+			loadYamlData();
+		});
+	</script>
 </body>
 </html>
