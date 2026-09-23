@@ -117,73 +117,85 @@
 			</div>
 
 			<div class="glass-panel w-full max-w-[420px] rounded-[2.25rem] px-4 py-6 sm:px-6 sm:py-8">
-				<svg class="portrait-wrap mx-auto w-full max-w-[320px]" viewBox="0 0 720 760" role="img" aria-label="Low poly portrait illustration">
+				<svg class="portrait-wrap mx-auto w-full max-w-[320px]" viewBox="0 0 720 860" role="img" aria-label="Low poly portrait illustration">
 						<defs>
 							<linearGradient id="bgGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-								<stop offset="0%" stop-color="#0f172a" stop-opacity="0.15" />
-								<stop offset="100%" stop-color="#020617" stop-opacity="0.95" />
+								<stop offset="0%" stop-color="#ffffff" />
+								<stop offset="100%" stop-color="#f3f4f6" />
 							</linearGradient>
 							<linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-								<stop offset="0%" stop-color="#f8c7a4" />
-								<stop offset="52%" stop-color="#e9a781" />
-								<stop offset="100%" stop-color="#c87958" />
+								<stop offset="0%" stop-color="#f3d3bd" />
+								<stop offset="45%" stop-color="#e2b594" />
+								<stop offset="100%" stop-color="#bb8969" />
+							</linearGradient>
+							<linearGradient id="skinShade" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#d7a17f" />
+								<stop offset="100%" stop-color="#9f694d" />
 							</linearGradient>
 							<linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-								<stop offset="0%" stop-color="#1f2937" />
-								<stop offset="100%" stop-color="#0f172a" />
+								<stop offset="0%" stop-color="#202634" />
+								<stop offset="100%" stop-color="#0d1117" />
 							</linearGradient>
-							<linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-								<stop offset="0%" stop-color="#143c6d" />
-								<stop offset="100%" stop-color="#071525" />
+							<linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#8f98a2" />
+								<stop offset="100%" stop-color="#5e6670" />
 							</linearGradient>
 							<linearGradient id="collarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-								<stop offset="0%" stop-color="#d9e7f7" />
-								<stop offset="100%" stop-color="#aebed1" />
+								<stop offset="0%" stop-color="#d6dbe0" />
+								<stop offset="100%" stop-color="#aeb6be" />
+							</linearGradient>
+							<linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#161b24" />
+								<stop offset="100%" stop-color="#05070b" />
 							</linearGradient>
 						</defs>
 
-						<rect x="70" y="40" width="580" height="680" rx="44" fill="url(#bgGlow)" opacity="0.95"></rect>
-						<circle cx="360" cy="350" r="220" fill="rgba(99,102,241,0.06)"></circle>
+						<rect x="36" y="28" width="648" height="804" rx="38" fill="none"></rect>
+						<circle cx="360" cy="360" r="238" fill="rgba(17,24,39,0.03)"></circle>
 
 						<g class="zone-group" data-zone="hair">
-							<polygon class="poly-part" style="fill:url(#hairGrad);stroke:rgba(148,163,184,0.22);stroke-width:2;--dx:-6px;--dy:-12px" points="250,130 300,92 360,80 420,92 470,130 452,178 360,198 268,178"></polygon>
-							<polygon class="poly-part" style="fill:#182033;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:6px;--dy:-10px" points="268,178 360,198 452,178 466,245 360,226 254,245"></polygon>
-							<polygon class="poly-part" style="fill:#111827;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:-8px;--dy:4px" points="254,245 360,226 466,245 434,300 360,290 286,300"></polygon>
-							<polygon class="poly-part" style="fill:#0f172a;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:9px;--dy:6px" points="286,300 360,290 434,300 410,350 360,336 310,350"></polygon>
-							<polygon class="poly-part" style="fill:#1e293b;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:-4px;--dy:10px" points="220,178 268,178 254,245 204,232 190,198"></polygon>
-							<polygon class="poly-part" style="fill:#1e293b;stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:4px;--dy:10px" points="520,178 472,178 466,245 516,232 530,198"></polygon>
-						</g>
-
-						<g class="zone-group" data-zone="glasses">
-							<polygon class="poly-part" style="fill:rgba(7,13,24,0.78);stroke:rgba(103,232,249,0.28);stroke-width:2;--dx:-4px;--dy:2px" points="250,280 310,270 322,308 258,316"></polygon>
-							<polygon class="poly-part" style="fill:rgba(7,13,24,0.78);stroke:rgba(103,232,249,0.28);stroke-width:2;--dx:4px;--dy:2px" points="410,270 470,280 462,316 398,308"></polygon>
-							<polygon class="poly-part" style="fill:none;stroke:rgba(103,232,249,0.55);stroke-width:3;--dx:0px;--dy:0px" points="322,302 398,302"></polygon>
-							<polygon class="poly-part" style="fill:rgba(34,211,238,0.08);stroke:rgba(103,232,249,0.22);stroke-width:1.5;--dx:0px;--dy:4px" points="252,278 300,256 316,274 258,286"></polygon>
-							<polygon class="poly-part" style="fill:rgba(34,211,238,0.08);stroke:rgba(103,232,249,0.22);stroke-width:1.5;--dx:0px;--dy:4px" points="420,256 468,278 462,286 404,274"></polygon>
+							<polygon class="poly-part" style="fill:url(#hairGrad);stroke:rgba(148,163,184,0.18);stroke-width:2;--dx:-4px;--dy:-10px" points="206,150 260,102 334,72 396,70 466,88 528,132 552,190 508,204 470,170 418,148 360,140 290,150 236,184"></polygon>
+							<polygon class="poly-part" style="fill:#171b25;stroke:rgba(148,163,184,0.12);stroke-width:2;--dx:6px;--dy:-8px" points="236,184 290,150 360,140 418,148 470,170 508,204 496,246 444,232 360,216 282,228"></polygon>
+							<polygon class="poly-part" style="fill:#10141c;stroke:rgba(148,163,184,0.12);stroke-width:2;--dx:-7px;--dy:3px" points="220,208 282,228 360,216 444,232 496,246 472,292 362,286 252,294"></polygon>
+							<polygon class="poly-part" style="fill:#0d1117;stroke:rgba(148,163,184,0.12);stroke-width:2;--dx:8px;--dy:6px" points="252,294 362,286 472,292 442,338 360,328 286,342"></polygon>
+							<polygon class="poly-part" style="fill:#232936;stroke:rgba(148,163,184,0.12);stroke-width:2;--dx:-4px;--dy:10px" points="182,182 220,208 252,294 206,288 164,236"></polygon>
+							<polygon class="poly-part" style="fill:#232936;stroke:rgba(148,163,184,0.12);stroke-width:2;--dx:4px;--dy:10px" points="538,182 552,190 552,236 510,288 472,292 496,246"></polygon>
 						</g>
 
 						<g class="zone-group" data-zone="face">
-							<polygon class="poly-part" style="fill:url(#skinGrad);stroke:rgba(255,255,255,0.14);stroke-width:2;--dx:-3px;--dy:3px" points="300,200 360,170 420,200 446,268 438,370 392,436 360,458 328,436 282,370 274,268"></polygon>
-							<polygon class="poly-part" style="fill:#d58f6e;stroke:rgba(255,255,255,0.12);stroke-width:1.8;--dx:-4px;--dy:6px" points="300,200 340,194 330,260 274,268"></polygon>
-							<polygon class="poly-part" style="fill:#e7a885;stroke:rgba(255,255,255,0.12);stroke-width:1.8;--dx:4px;--dy:6px" points="420,200 380,194 390,260 446,268"></polygon>
-							<polygon class="poly-part" style="fill:#cf7f5d;stroke:rgba(255,255,255,0.12);stroke-width:1.8;--dx:0px;--dy:4px" points="330,260 390,260 402,308 360,326 318,308"></polygon>
-							<polygon class="poly-part" style="fill:#b96543;stroke:rgba(255,255,255,0.08);stroke-width:1.5;--dx:0px;--dy:7px" points="318,308 360,326 402,308 392,350 360,372 328,350"></polygon>
-							<polygon class="poly-part" style="fill:#f0b693;stroke:rgba(255,255,255,0.08);stroke-width:1.5;--dx:-2px;--dy:10px" points="328,350 360,372 392,350 382,394 360,410 338,394"></polygon>
-							<polygon class="poly-part" style="fill:#6f3528;stroke:rgba(255,255,255,0.08);stroke-width:1.2;--dx:0px;--dy:8px" points="344,382 360,392 376,382 360,404"></polygon>
+							<polygon class="poly-part" style="fill:url(#skinGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:-2px;--dy:3px" points="258,214 318,180 402,178 462,214 488,286 480,388 438,458 360,520 282,458 240,388 232,286"></polygon>
+							<polygon class="poly-part" style="fill:#ddb08f;stroke:rgba(255,255,255,0.10);stroke-width:1.6;--dx:-4px;--dy:5px" points="258,214 318,180 294,276 236,286"></polygon>
+							<polygon class="poly-part" style="fill:#c98f6d;stroke:rgba(255,255,255,0.10);stroke-width:1.6;--dx:4px;--dy:5px" points="402,178 462,214 484,286 426,276"></polygon>
+							<polygon class="poly-part" style="fill:#e1b79a;stroke:rgba(255,255,255,0.10);stroke-width:1.4;--dx:0px;--dy:6px" points="294,276 426,276 438,328 360,350 282,328"></polygon>
+							<polygon class="poly-part" style="fill:#c68868;stroke:rgba(255,255,255,0.08);stroke-width:1.4;--dx:0px;--dy:8px" points="282,328 360,350 438,328 426,390 360,420 294,390"></polygon>
+							<polygon class="poly-part" style="fill:#f0c1a2;stroke:rgba(255,255,255,0.08);stroke-width:1.2;--dx:-2px;--dy:10px" points="294,390 360,420 426,390 412,446 360,476 308,446"></polygon>
+							<polygon class="poly-part" style="fill:#8a503f;stroke:rgba(255,255,255,0.08);stroke-width:1.2;--dx:0px;--dy:10px" points="336,396 360,408 384,396 360,430"></polygon>
+							<polygon class="poly-part" style="fill:#d78f6d;stroke:rgba(255,255,255,0.08);stroke-width:1.2;--dx:0px;--dy:8px" points="314,356 360,372 406,356 392,398 360,414 328,398"></polygon>
+						</g>
+
+						<g class="zone-group" data-zone="glasses">
+							<polygon class="poly-part" style="fill:rgba(255,255,255,0.03);stroke:#0b0f14;stroke-width:6;--dx:-3px;--dy:3px" points="172,292 228,260 324,258 340,324 278,350 184,344"></polygon>
+							<polygon class="poly-part" style="fill:rgba(255,255,255,0.03);stroke:#0b0f14;stroke-width:6;--dx:3px;--dy:3px" points="380,258 476,260 532,292 540,344 446,350 384,324"></polygon>
+							<polygon class="poly-part" style="fill:none;stroke:#0b0f14;stroke-width:7;--dx:0px;--dy:1px" points="340,306 380,306"></polygon>
+							<polygon class="poly-part" style="fill:rgba(255,255,255,0.08);stroke:rgba(11,15,20,0.55);stroke-width:1.4;--dx:0px;--dy:3px" points="190,278 244,252 280,268 232,294"></polygon>
+							<polygon class="poly-part" style="fill:rgba(255,255,255,0.08);stroke:rgba(11,15,20,0.55);stroke-width:1.4;--dx:0px;--dy:3px" points="440,252 494,278 490,294 444,268"></polygon>
+							<polygon class="poly-part" style="fill:rgba(255,255,255,0.02);stroke:rgba(11,15,20,0.18);stroke-width:1;--dx:0px;--dy:4px" points="202,294 310,292 302,336 202,338"></polygon>
+							<polygon class="poly-part" style="fill:rgba(255,255,255,0.02);stroke:rgba(11,15,20,0.18);stroke-width:1;--dx:0px;--dy:4px" points="410,292 518,294 518,338 418,336"></polygon>
 						</g>
 
 						<g class="zone-group" data-zone="collar">
-							<polygon class="poly-part" style="fill:url(#collarGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:-7px;--dy:12px" points="282,458 340,426 360,470 326,512 270,476"></polygon>
-							<polygon class="poly-part" style="fill:url(#collarGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:7px;--dy:12px" points="438,458 380,426 360,470 394,512 450,476"></polygon>
-							<polygon class="poly-part" style="fill:#d5e1ef;stroke:rgba(255,255,255,0.14);stroke-width:1.6;--dx:0px;--dy:10px" points="340,426 360,470 326,512 300,462"></polygon>
-							<polygon class="poly-part" style="fill:#c2d1e3;stroke:rgba(255,255,255,0.14);stroke-width:1.6;--dx:0px;--dy:10px" points="380,426 360,470 394,512 420,462"></polygon>
+							<polygon class="poly-part" style="fill:url(#collarGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:-7px;--dy:10px" points="238,504 302,470 330,534 288,582 226,544"></polygon>
+							<polygon class="poly-part" style="fill:url(#collarGrad);stroke:rgba(255,255,255,0.16);stroke-width:2;--dx:7px;--dy:10px" points="482,504 418,470 390,534 432,582 494,544"></polygon>
+							<polygon class="poly-part" style="fill:#dde4ea;stroke:rgba(255,255,255,0.14);stroke-width:1.6;--dx:0px;--dy:10px" points="302,470 360,522 330,608 284,572"></polygon>
+							<polygon class="poly-part" style="fill:#c8d0d6;stroke:rgba(255,255,255,0.14);stroke-width:1.6;--dx:0px;--dy:10px" points="418,470 360,522 390,608 436,572"></polygon>
+							<polygon class="poly-part" style="fill:#f0c25b;stroke:rgba(255,255,255,0.10);stroke-width:1.2;--dx:0px;--dy:12px" points="350,560 370,560 384,676 356,676"></polygon>
 						</g>
 
 						<g class="zone-group" data-zone="shirt">
-							<polygon class="poly-part" style="fill:url(#shirtGrad);stroke:rgba(56,189,248,0.15);stroke-width:2;--dx:0px;--dy:14px" points="260,490 326,512 360,560 394,512 460,490 510,620 210,620"></polygon>
-							<polygon class="poly-part" style="fill:#123055;stroke:rgba(56,189,248,0.14);stroke-width:1.6;--dx:-8px;--dy:20px" points="210,620 260,490 326,512 298,648 236,688 190,650"></polygon>
-							<polygon class="poly-part" style="fill:#0c1f36;stroke:rgba(56,189,248,0.14);stroke-width:1.6;--dx:8px;--dy:20px" points="510,620 460,490 394,512 422,648 484,688 530,650"></polygon>
-							<polygon class="poly-part" style="fill:#0f2847;stroke:rgba(56,189,248,0.14);stroke-width:1.6;--dx:0px;--dy:18px" points="298,648 360,560 422,648 360,716"></polygon>
+							<polygon class="poly-part" style="fill:url(#shirtGrad);stroke:rgba(90,99,111,0.25);stroke-width:2;--dx:0px;--dy:14px" points="214,596 284,572 334,640 360,706 386,640 436,572 506,596 548,782 172,782"></polygon>
+							<polygon class="poly-part" style="fill:#707982;stroke:rgba(90,99,111,0.24);stroke-width:1.6;--dx:-8px;--dy:18px" points="172,782 214,596 284,572 272,706 222,792 176,804"></polygon>
+							<polygon class="poly-part" style="fill:#585f67;stroke:rgba(90,99,111,0.24);stroke-width:1.6;--dx:8px;--dy:18px" points="548,782 506,596 436,572 448,706 498,792 544,804"></polygon>
+							<polygon class="poly-part" style="fill:#49515a;stroke:rgba(90,99,111,0.24);stroke-width:1.6;--dx:0px;--dy:18px" points="272,706 360,706 448,706 420,782 360,818 300,782"></polygon>
 						</g>
 					</svg>
 					<div class="mt-5 text-center">
