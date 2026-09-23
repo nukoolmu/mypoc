@@ -1,6 +1,7 @@
 profile:
-  name: "Alexander"
-  role: "Frontend Portfolio Concept"
+  name: "์Nukool Muangsoon"
+  nickname: "Ra"
+  role: "IT Specialist Team Lead"
   summary: "A minimalist portrait built from symmetric low-poly geometry, designed to demonstrate motion, interaction, and data-driven UI in a single HTML file."
 
 zones:
@@ -39,3 +40,5 @@ faqs:
     answer: "Click any polygon area. The modal reads content from the YAML database and displays the matching zone information."
   - question: "what can the chatbot answer"
     answer: "It can answer questions about the portrait zones, profile summary, and the interaction behavior using keyword matching against the YAML data."
+  - question: "ชื่อเล่น"
+    answer: "ชื่อเล่นของฉันคือ 'ระ' ซึ่งเป็นชื่อที่เพื่อน ๆ และครอบครัวเรียกฉัน"
