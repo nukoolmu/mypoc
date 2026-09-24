@@ -11,8 +11,8 @@ zones:
       description: "I was born in 1991 in Sukhothai, Thailand. I have a strong passion for technology, design, and music. In 2012, I graduated with a Bachelor's degree in Computer Science from North Bangkok University and have been working in the IT field ever since. My career includes 3 years as an IT Operations at Kasikornbank (outsourced via MFEC) and another 3 years as an IT Outsourcing System engineer at AIS. Subsequently, I was promoted to IT Specialist Team Leader at AIS, a position I currently hold."
       keywords: ["background", "role", "responsibility", "experience", "crown"]
     th:
-      title: "ประวัติพื้นหลัง"
-      description: "เกิดปี 2534 ที่จังหวัดสุโขทัย ประเทศไทย มีความสนใจอย่างมากในด้านเทคโนโลยี ดีไซน์ และเพลง สำเร็จการศึกษาปี 2555 ด้านวิทยาศาสตร์คอมพิวเตอร์จากมหาวิทยาลัยหัวเมืองเหนือ และเป็นระยะเวลามากกว่า 10 ปีในการทำงานในด้านไอที มีประสบการณ์ 3 ปีเป็น IT Operations ที่ธนาคารกสิกรไทย (outsourced via MFEC) และอีก 3 ปีเป็น IT Outsourcing System Engineer ที่ AIS จากนั้นได้เลื่อนตำแหน่งเป็น IT Specialist Team Leader ในตำแหน่งปัจจุบัน"
+      title: "ประวัติส่วนตัว"
+      description: "เกิดเมื่อปี พ.ศ. 2534 ที่จังหวัดสุโขทัย มีความหลงใหลในด้านเทคโนโลยี งานดีไซน์ และเสียงเพลงอย่างลึกซึ้ง สำเร็จการศึกษาระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์ จากมหาวิทยาลัยนอร์ทกรุงเทพ เมื่อปี พ.ศ. 2555 และทำงานในสายงาน IT มาอย่างต่อเนื่อง ประวัติการทำงานเริ่มจากการเป็น IT Operations ที่ธนาคารกสิกรไทย (Outsource ผ่านบริษัท MFEC) เป็นเวลา 3 ปี และเป็น IT System Engineer (Outsource) ที่ AIS ต่ออีก 3 ปี ก่อนจะได้รับการเลื่อนตำแหน่งเป็น IT Specialist Team Leader ที่ AIS ซึ่งเป็นตำแหน่งปัจจุบัน"
       keywords: ["ประวัติ", "บทบาท", "ความรับผิดชอบ", "ประสบการณ์", "พื้นหลัง", "เกี่ยวกับฉัน"]
   glasses:
     en:
@@ -21,10 +21,10 @@ zones:
       note: "A Rapper A.K.A czman , Graphic Designer A.K.A froncduche"
       keywords: ["Hobby", "softskill", "focus", "vision", "detail"]
     th:
-      title: "งานอดิเรก"
-      description: "นอกจากการทำงานด้านเทคโนโลยี ฉันเป็นนักออกแบบกราฟิก rapper และนักปรุงอาหาร มีความรักและหลงใหลในด้านดีไซน์และเพลง โดยเฉพาะการออกแบบตัวการ์ตูนและโลโก้ ในเวลาว่างฉันชอบทดลองสูตรอาหารใหม่ ๆ และเทคนิคการปรุงอาหาร"
-      note: "Rapper ชื่อเล่น czman, Graphic Designer ชื่อเล่น froncduche"
-      keywords: ["งานอดิเรก", "ทักษะนอกเหนือ", "เน้น", "วิสัยทัศน์", "รายละเอียด"]
+      title: "งานอดิเรกและความสนใจ"
+      description: "นอกเหนือจากบทบาทสายเทคโนโลยีแล้ว ผมยังเป็นนักออกแบบกราฟิก แร็ปเปอร์ และโฮมคุกอีกด้วย ผมมีความรักและหลงใหลในงานดีไซน์และเสียงเพลงเป็นพิเศษ โดยเฉพาะการออกแบบตัวการ์ตูนคาแรคเตอร์และโลโก้ ส่วนในเวลาว่าง ผมชอบทดลองสูตรอาหารและเทคนิคการทำอาหารใหม่ ๆ เสมอ"
+      note: "Rapper Alias: czman | Graphic Designer Alias: froncduche"
+      keywords: ["งานอดิเรก", "ทักษะทางสังคม", "ความมุ่งมั่น", "วิสัยทัศน์", "ความใส่ใจรายละเอียด"]
   face:
     en:
       title: "technical Skill"
@@ -32,10 +32,10 @@ zones:
       note: "Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana,Ansible, Terraform, Bash"
       keywords: ["technology", "skill", "experience", "tech", "identity"]
     th:
-      title: "ทักษะทางเทคนิค"
-      description: "ฉันเป็นผู้ที่มีความสนใจและหลงใหลในการแปลงเทคโนโลยีและนวัตกรรม มีพื้นฐานความรู้ที่มั่นคงในด้าน DevOps, Cloud Computing และ IT Infrastructure ฉันเชี่ยวชาญในการออกแบบและบริหารจัดการระบบคอมพิวเตอร์และเครือข่ายประสิทธิภาพสูง เพื่อให้มั่นใจได้ว่าการทำงานที่เหมาะสมที่สุด ความปลอดภัย และความเชื่อถือได้ โดยใช้ประสบการณ์ด้านการพัฒนาซอฟต์แวร์ ฉันสร้างสารแก้ปัญหาที่เป็นนวัตกรรมและเน้นผู้ใช้ที่ขับเคลื่อนการแปลงเทคโนโลยีดิจิทัล"
+      title: "ทักษะความเชี่ยวชาญทางเทคนิค"
+      description: "ผมเป็นผู้หลงใหลในการขับเคลื่อนนวัตกรรมและการเปลี่ยนผ่านทางเทคโนโลยี (Tech Transformation) มีพื้นฐานที่แข็งแกร่งด้าน DevOps, Cloud Computing และ IT Infrastructure เชี่ยวชาญการออกแบบและบริหารจัดการระบบคอมพิวเตอร์และเครือข่ายประสิทธิภาพสูง เพื่อให้มั่นใจในเรื่องประสิทธิภาพ ความปลอดภัย และความเสถียรสูงสุด นอกจากนี้ยังนำประสบการณ์ด้านการพัฒนาซอฟต์แวร์มาใช้ออกแบบและสร้างสรรค์โซลูชันนวัตกรรมที่เน้นผู้ใช้เป็นศูนย์กลาง เพื่อตอบโจทย์การเปลี่ยนผ่านสู่ดิจิทัลอย่างแท้จริง"
       note: "Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana, Ansible, Terraform, Bash"
-      keywords: ["เทคโนโลยี", "ทักษะ", "ประสบการณ์", "เทค", "เอกลักษณ์"]
+      keywords: ["เทคโนโลยี", "ทักษะ", "ประสบการณ์", "เทค", "ตัวตน"]
   collar:
     en:
       title: "Innovation"
@@ -43,10 +43,10 @@ zones:
       note: "As the sole creator and architect of OC-Loadtester, I took on the challenge of ensuring zero-downtime, fully automated deployments. To achieve this, I conceptualized and engineered an absolute continuous deployment framework that seamlessly handles release management."
       keywords: ["Innovation", "idea", "creative", "structure"]
     th:
-      title: "นวัตกรรม"
-      description: "เพื่อแก้ปัญหาข้อจำกัดของ VM scaling ฉันได้สร้าง OC-Loadtester ซึ่งเป็นเครื่องจำลองการทดสอบภาระงานขนาดใหญ่ โดยใช้ประโยชน์จาก JMeter แบบกระจายภายในกรอบงาน microservices นอกจากนี้ ฉันยังได้วางแผนและปรับใช้ pipeline การปรับใช้ที่บูรณาการรวมกลยุทธ์การอัพเดทแบบค่อยเป็นค่อยไปและความสามารถในการทดสอบ A/B"
-      note: "ในฐานะผู้สร้างและสถาปนิกเพียงคนเดียวของ OC-Loadtester ฉันได้รับความท้าทายในการรับประกันการปรับใช้ที่ไม่มีการหยุดและทั้งหมดอัตโนมัติ เพื่อให้บรรลุเป้าหมายนี้ ฉันได้วางแผนและออกแบบกรอบการปรับใช้อย่างต่อเนื่องที่จัดการการออกรุ่นอย่างราบรื่น"
-      keywords: ["นวัตกรรม", "ความคิด", "สร้างสรรค์", "โครงสร้าง"]
+      title: "ผลงานนวัตกรรม"
+      description: "เพื่อก้าวข้ามข้อจำกัดด้านการปรับขยายขนาด (Scaling) ของ Virtual Machine ผมได้ออกแบบและพัฒนา OC-Loadtester ซึ่งเป็นระบบจำลองการทดสอบภาระงานระดับ Hyperscale โดยประยุกต์ใช้ Distributed JMeter บนโครงสร้างสถาปัตยกรรม Microservices นอกจากนี้ยังได้ออกแบบและติดตั้ง Pipeline การปรับใช้ระบบ (Deployment Pipeline) แบบบูรณาการ ซึ่งผสานกลยุทธ์ Rolling Update เข้ากับการทดสอบแบบ A/B Testing ได้อย่างลงตัว"
+      note: "ในฐานะผู้ออกแบบสถาปัตยกรรมและผู้สร้าง OC-Loadtester เพียงผู้เดียว ผมได้รับความท้าทายในการพัฒนาระบบ Deployment แบบอัตโนมัติเต็มรูปแบบที่การันตี Zero-Downtime โดยคิดค้นและวิศวกรรมระบบ Continuous Deployment Framework แบบครบวงจรที่บริหารจัดการการ Release ระบบได้อย่างไร้รอยต่อ"
+      keywords: ["นวัตกรรม", "ความคิดสร้างสรรค์", "โครงสร้างสถาปัตยกรรม"]
   shirt:
     en:
       title: "strong and weak point"
@@ -54,10 +54,10 @@ zones:
       note: "Development Areas. Continuously improving prioritization and delegation to maintain focus across multiple initiatives. Developing stronger strategic communication and stakeholder management skills for broader leadership responsibilities. Further strengthening professional English communication for global and cross-cultural environments."
       keywords: ["strong", "weak", "improvement", "base", "professional"]
     th:
-      title: "จุดแข็งและจุดอ่อน"
-      description: "จุดแข็ง ทักษะการวิเคราะห์และแก้ปัญหาที่เข้มแข็ง พร้อมแนวทางการจัดการที่เป็นระบบในการเผชิญความท้าทายทางเทคนิคที่ซับซ้อน ความเป็นเจ้าของงาน ความรับผิดชอบ และความมุ่งมั่นที่แข็งแกร่งในการนำเสนอผลลัพธ์ มีประสบการณ์ในการนำทีม การปรับปรุงความร่วมมือ และการขับเคลื่อนการปรับปรุงอย่างต่อเนื่อง ผู้เรียนรู้ได้เร็วที่มีความสนใจเป็นอย่างมากในเทคโนโลยีที่เกิดขึ้นใหม่ AI โครงสร้างพื้นฐานระบบคลาวด์ และการอัตโนมัติ มีความยืดหยุ่น เป็นผู้ริเริ่ม และสามารถทำงานได้อย่างสบายใจในสภาวะการทำงานที่เปลี่ยนแปลงอย่างรวดเร็ว"
-      note: "พื้นที่พัฒนา การปรับปรุงลำดับความสำคัญและการมอบหมายงานอย่างต่อเนื่องเพื่อรักษาการมุ่งเน้นในมูลค่าหลายอย่าง การพัฒนาการสื่อสารเชิงกลยุทธ์ที่เข้มแข็งขึ้นและทักษะการจัดการผู้มีส่วนได้ส่วนเสียสำหรับความรับผิดชอบด้านการนำที่กว้างขึ้น การเพิ่มพูนความสามารถในการสื่อสารภาษาอังกฤษเชิงวิชาชีพสำหรับสภาพแวดล้อมระดับโลกและข้ามวัฒนธรรม"
-      keywords: ["แข็ง", "อ่อน", "การปรับปรุง", "พื้นฐาน", "มืออาชีพ"]
+      title: "จุดแข็งและจุดที่มุ่งเน้นพัฒนา"
+      description: "จุดแข็งระดับมืออาชีพ: มีทักษะการวิเคราะห์และแก้ไขปัญหาที่ซับซ้อนอย่างเป็นระบบ มีความเป็นเจ้าของงาน (Ownership) ความรับผิดชอบสูง และมุ่งเน้นการส่งมอบผลลัพธ์ที่เป็นเลิศ มีประสบการณ์ในการนำทีม ส่งเสริมความร่วมมือ และขับเคลื่อนการพัฒนากระบวนการอย่างต่อเนื่อง เป็นคนที่เรียนรู้ไวและสนใจเทคโนโลยีใหม่ๆ อยู่เสมอ ไม่ว่าจะเป็น AI, Cloud Infrastructure หรือ Automation อีกทั้งยังมีความยืดหยุ่น ทำงานเชิงรุก และปรับตัวเข้ากับสภาพแวดล้อมที่เปลี่ยนแปลงรวดเร็วได้ดี"
+      note: "จุดที่มุ่งเน้นพัฒนา: มุ่งมั่นปรับปรุงการจัดลำดับความสำคัญและการกระจายงานอย่างต่อเนื่อง เพื่อให้คงประสิทธิภาพในการโฟกัสโปรเจกต์ที่หลากหลาย พัฒนาทักษะการสื่อสารเชิงกลยุทธ์และการบริหารจัดการผู้มีส่วนได้ส่วนเสีย (Stakeholder Management) เพื่อรองรับบทบาทผู้นำที่กว้างขึ้น รวมถึงการยกระดับการสื่อสารภาษาอังกฤษเชิงวิชาชีพสำหรับการทำงานในระดับสากล"
+      keywords: ["จุดแข็ง", "จุดอ่อน", "การพัฒนาตนเอง", "ความเป็นมืออาชีพ"]
 
 
 faqs:
@@ -111,7 +111,7 @@ faqs:
   - question: "czman"
     answer: "https://www.youtube.com/watch?v=JJJkjP4YqiQ&list=RDJJJkjP4YqiQ&start_radio=1, https://www.youtube.com/watch?v=hKkA0T0Er0c&list=RDhKkA0T0Er0c&start_radio=1, https://www.youtube.com/watch?v=FtU54h9-QiQ&list=RDFtU54h9-QiQ&start_radio=1"
   - question: "froncduche"
-    answer: "images/logo-ms.jpg"
+    answer: "./images/logo-ms.jpg"
   # English - Strengths & Development Areas
   - question: "what are your strengths"
     answer: "Strong analytical and problem-solving skills, high ownership and accountability, excellent team leadership, fast learner, adaptable, proactive, and comfortable in fast-paced environments."
@@ -120,42 +120,42 @@ faqs:
   
   # Thai - ข้อมูลทั่วไป
   - question: "ชื่อเล่น"
-    answer: "ชื่อเล่นของฉันคือ 'ระ' ซึ่งเป็นชื่อที่เพื่อน ๆ และครอบครัวเรียกฉัน"
+    answer: "ชื่อเล่นของผมคือ 'ระ' ครับ"
   - question: "คุณคือใคร"
-    answer: "ฉันชื่อ นูกูล เมืองสูง (Nukool Muangsoon) ทำงานเป็น IT Specialist Team Leader ที่ AIS มีความสนใจด้านเทคโนโลยี ดีไซน์ และเพลง"
+    answer: "ผมชื่อ นูกูล เมืองสูง (ระ) ปัจจุบันดำรงตำแหน่ง IT Specialist Team Leader ที่ AIS และมีความสนใจในด้านเทคโนโลยี งานดีไซน์ และเสียงเพลงครับ"
   - question: "ชื่อเต็ม"
-    answer: "ชื่อเต็มของฉันคือ นูกูล เมืองสูง ชื่อเล่นคือ 'ระ'"
+    answer: "ชื่อจริงคือ นูกูล เมืองสูง ชื่อเล่นคือ 'ระ' ครับ"
   - question: "คุณทำงานอะไร"
-    answer: "ฉันทำงานเป็น IT Specialist Team Leader ที่ดูแลด้านระบบและเทคโนโลยีสารสนเทศ"
+    answer: "ปัจจุบันดำรงตำแหน่ง IT Specialist Team Leader ที่ AIS ดูแลการบริหารจัดการระบบและโครงสร้างพื้นฐานด้าน IT ครับ"
   - question: "พื้นหลัง"
-    answer: "เกิดปี 2534 ที่จังหวัดสุโขทัย สำเร็จการศึกษาปี 2555 สาขาวิทยาศาสตร์คอมพิวเตอร์ จากมหาวิทยาลัยนอร์ทกรุงเทพ ทำงาน IT Operations ที่ธนาคารกสิกรไทย 3 ปี และ IT Outsourcing System Engineer ที่ AIS 3 ปี แล้วเลื่อนตำแหน่งเป็น IT Specialist Team Leader"
+    answer: "เกิดเมื่อปี พ.ศ. 2534 ที่จังหวัดสุโขทัย สำเร็จการศึกษาระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์ จากมหาวิทยาลัยนอร์ทกรุงเทพ เมื่อปี พ.ศ. 2555 มีประสบการณ์ทำงาน IT Operations ที่ธนาคารกสิกรไทย 3 ปี และเป็น IT System Engineer ที่ AIS 3 ปี ก่อนจะได้รับการเลื่อนตำแหน่งเป็น IT Specialist Team Leader ครับ"
   
   # Thai - ทักษะเทคนิค
   - question: "ทักษะเทคนิค"
-    answer: "ความเชี่ยวชาญในด้าน DevOps, Cloud Computing และ IT Infrastructure โดยมีทักษะ Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana, Ansible, Terraform, Bash"
+    answer: "เชี่ยวชาญด้าน DevOps, Cloud Computing และ IT Infrastructure เครื่องมือหลักที่ใช้ได้แก่ Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana, Ansible, Terraform และ Bash"
   - question: "devops"
-    answer: "Jenkins, GitLab, GitHub, Docker, Kubernetes, Ansible, Terraform และการออกแบบ continuous integration/deployment pipelines"
+    answer: "เชี่ยวชาญการใช้ Jenkins, GitLab, GitHub, Docker, Kubernetes, Ansible, Terraform และการออกแบบ CI/CD Automation Pipelines"
   - question: "cloud"
-    answer: "ความชำนาญในการใช้ AWS และ Azure สำหรับการออกแบบและจัดการโครงสร้างพื้นฐาน"
+    answer: "มีความเชี่ยวชาญในการใช้ AWS และ Azure สำหรับการออกแบบและบริหารจัดการโครงสร้างพื้นฐานระบบคลาวด์"
   
   # Thai - นวัตกรรม
   - question: "oc-loadtester"
-    answer: "โครงการนวัตกรรมของฉัน คือ OC-Loadtester ซึ่งเป็นระบบจำลองการทดสอบภาระงานขนาดใหญ่ โดยใช้ JMeter แบบ distributed ภายใต้ microservices framework เพื่อแก้ปัญหา VM scaling limitation"
+    answer: "OC-Loadtester คือผลงานนวัตกรรมสถาปัตยกรรมระบบที่ผมออกแบบและพัฒนาขึ้น เป็นระบบจำลองการทดสอบภาระงานระดับ Hyperscale โดยใช้ Distributed JMeter บน Microservices Framework เพื่อก้าวข้ามข้อจำกัดด้าน VM Scaling และรองรับการ Deployment แบบ Zero-Downtime"
   - question: "นวัตกรรม"
-    answer: "สร้าง integrated deployment pipeline ที่รวมการอัพเดท rolling update กับ A/B testing และสร้าง OC-Loadtester เพื่อการทดสอบภาระงานขนาดใหญ่"
+    answer: "ออกแบบ Deployment Pipeline แบบบูรณาการที่รวม Rolling Update เข้ากับ A/B Testing และสร้างระบบ OC-Loadtester สำหรับทดสอบภาระงานขนาดใหญ่และการปรับใช้ระบบอย่างต่อเนื่อง"
   
   # Thai - งานอดิเรก
   - question: "งานอดิเรก"
-    answer: "ฉันเป็น graphic designer, rapper (ชื่อเวที: czman) และนักปรุงอาหาร ชอบออกแบบ cartoon characters และ logo ทำเพลง และทดลองสูตรอาหารใหม่ ๆ"
+    answer: "ผมเป็น Graphic Designer, แร็ปเปอร์ (ฉายา czman) และโฮมคุกครับ ชื่นชอบการออกแบบตัวการ์ตูน คาแรคเตอร์ โลโก้ การทำเพลง และการทดลองทำอาหารสูตรใหม่ๆ ในเวลาว่าง"
   - question: "graphic designer"
-    answer: "ฉันเป็น graphic designer ที่มีความสามารถในการออกแบบ cartoon characters, logo design และงานกราฟิกอื่น ๆ โดยมีนามปากกาว่า froncduche"
+    answer: "มีความเชี่ยวชาญในการออกแบบตัวการ์ตูนคาแรคเตอร์ โลโก้ และงานกราฟิก โดยมีนามปากกาในวงการดีไซน์ว่า 'froncduche'"
   - question: "rapper"
-    answer: "ฉันเป็น rapper ที่มีชื่อเวที 'czman' มีความรักในการทำเพลงและดีไซน์"
+    answer: "ผมทำเพลงแร็ปโดยใช้ฉายาว่า 'czman' มีความรักและหลงใหลในเสียงเพลงอย่างลึกซึ้ง"
   - question: "พ่อครัว"
-    answer: "ฉันชอบการปรุงอาหารและทดลองสูตรและเทคนิคการปรุงอาหารใหม่ ๆ ในเวลาว่าง"
+    answer: "ชอบทำอาหารและชื่นชอบการทดลองใช้สูตรอาหารรวมถึงเทคนิคใหม่ๆ ในการทำอาหารเวลาว่างครับ"
   
   # Thai - จุดแข็งและพัฒนา
   - question: "จุดแข็ง"
-    answer: "มีทักษะการวิเคราะห์และแก้ปัญหาที่ชัดเจน ความเป็นเจ้าของงาน ความรับผิดชอบสูง ประสบการณ์ในการนำทีม ผู้เรียนรู้ได้เร็ว มีความสามารถปรับตัว และสามารถทำงานในสภาวะที่เปลี่ยนแปลงได้"
+    answer: "ทักษะการวิเคราะห์และแก้ไขปัญหาอย่างเป็นระบบ ความรับผิดชอบสูง (Ownership) ประสบการณ์ในการนำทีม เรียนรู้ได้เร็ว ปรับตัวเก่ง และทำงานเชิงรุกในสภาพแวดล้อมที่มีการเปลี่ยนแปลงรวดเร็วได้เป็นอย่างดี"
   - question: "พัฒนา"
-    answer: "พัฒนาการบริหารลำดับความสำคัญและการมอบหมายงาน การสื่อสารกลยุทธ์กับผู้มีส่วนได้ส่วนเสีย และพัฒนาการสื่อสารภาษาอังกฤษสำหรับสภาวะการทำงานระหว่างประเทศ"
+    answer: "มุ่งเน้นพัฒนาการจัดลำดับความสำคัญและการกระจายงาน การสื่อสารเชิงกลยุทธ์กับผู้มีส่วนได้ส่วนเสีย (Stakeholder Management) และการพัฒนาการสื่อสารภาษาอังกฤษเชิงวิชาชีพสำหรับการทำงานในระดับสากล"

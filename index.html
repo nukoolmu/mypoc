@@ -678,8 +678,12 @@
 				}
 
 				const exactFaq = faqList.find((faq) => query.includes(normalize(faq.question)) || normalize(faq.question).includes(query));
-				if (exactFaq) return exactFaq.answer;
-
+			if (exactFaq) {
+				// Return answer based on current language
+				// If it's a Thai question, return Thai answer for Thai language
+				// If it's an English question, return English answer for English language
+				return exactFaq.answer;
+			}
 				const zoneEntries = Object.entries(zoneData)
 				.map(([key, zone]) => {
 					const langZone = zone[currentLanguage] || zone.en || zone;
@@ -714,22 +718,22 @@
 					showYouTubeModal(youtubeLinks);
 					chatOutput.innerHTML = `
 						<div class="space-y-2">
-							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
-							<p class="text-cyan-300 font-medium">🎵 Found ${youtubeLinks.length} YouTube video(s)! Opening player...</p>
+							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">${currentLanguage === 'en' ? 'Answer' : 'คำตอบ'}</p>
+							<p class="text-cyan-300 font-medium">${currentLanguage === 'en' ? '🎵 Found ' + youtubeLinks.length + ' YouTube video(s)! Opening player...' : '🎵 พบวิดีโอ YouTube ' + youtubeLinks.length + ' รายการ! กำลังเปิด...'}</p>
 						</div>
 					`;
 				} else if (imageLinks.length > 0) {
 					showPhotoModal(imageLinks);
 					chatOutput.innerHTML = `
 						<div class="space-y-2">
-							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
-							<p class="text-amber-300 font-medium">🖼️ Found ${imageLinks.length} photo(s)! Opening gallery...</p>
+							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">${currentLanguage === 'en' ? 'Answer' : 'คำตอบ'}</p>
+							<p class="text-amber-300 font-medium">${currentLanguage === 'en' ? '🖼️ Found ' + imageLinks.length + ' photo(s)! Opening gallery...' : '🖼️ พบรูปภาพ ' + imageLinks.length + ' รูป! กำลังเปิดแกลเลอรี่...'}</p>
 						</div>
 					`;
 				} else {
 					chatOutput.innerHTML = `
 						<div class="space-y-2">
-							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
+							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">${currentLanguage === 'en' ? 'Answer' : 'คำตอบ'}</p>
 							<p>${answer}</p>
 						</div>
 					`;
@@ -789,14 +793,22 @@
 			}
 
 			function extractImageLinks(text) {
-				const imageRegex = /(?:https?:)?\/\/[^\s)]+\.(?:jpg|jpeg|png|gif|webp|svg)/gi;
 				const links = [];
+				// Match absolute URLs (http/https)
+				const absoluteRegex = /https?:\/\/[^\s)]+\.(?:jpg|jpeg|png|gif|webp|svg)/gi;
 				let match;
-				while ((match = imageRegex.exec(text)) !== null) {
+				while ((match = absoluteRegex.exec(text)) !== null) {
 					if (!links.includes(match[0])) {
 						links.push(match[0]);
 					}
 				}
+				// Match relative paths (./images/..., ../images/..., /images/...)
+				const relativeRegex = /(?:\.\/|\.\.\/|\/)?[^\s")]+\.(?:jpg|jpeg|png|gif|webp|svg)/g;
+				text.match(relativeRegex)?.forEach(path => {
+					if (path && !links.includes(path) && !path.includes('://')) {
+						links.push(path);
+					}
+				});
 				return links;
 			}
 
