@@ -802,13 +802,15 @@
 						links.push(match[0]);
 					}
 				}
-				// Match relative paths (./images/..., ../images/..., /images/...)
-				const relativeRegex = /(?:\.\/|\.\.\/|\/)?[^\s")]+\.(?:jpg|jpeg|png|gif|webp|svg)/g;
-				text.match(relativeRegex)?.forEach(path => {
+				// Match relative paths more precisely (./path/file.jpg, ../path/file.jpg, /path/file.jpg)
+				const relativeRegex = /(?:\.\/|\.\.\/|\/)?(?:[a-zA-Z0-9\-_\/]+\/)*[a-zA-Z0-9\-_]+\.(?:jpg|jpeg|png|gif|webp|svg)/gi;
+				let relMatch;
+				while ((relMatch = relativeRegex.exec(text)) !== null) {
+					const path = relMatch[0];
 					if (path && !links.includes(path) && !path.includes('://')) {
 						links.push(path);
 					}
-				});
+				}
 				return links;
 			}
 
@@ -832,25 +834,26 @@
 				const counterDiv = document.getElementById('photo-counter');
 				const currentPhoto = currentPhotos[currentPhotoIndex];
 
+				if (!currentPhoto) return;
+
 				// Display main photo
-				viewerDiv.innerHTML = `<img src="${currentPhoto}" alt="Photo ${currentPhotoIndex + 1}" onload="this.style.opacity='1'" style="opacity:0;transition:opacity 300ms ease;">`;
+				viewerDiv.innerHTML = `<img src="${currentPhoto}" alt="Photo ${currentPhotoIndex + 1}" onload="this.style.opacity='1'" style="opacity:0;transition:opacity 300ms ease;" onerror="this.style.opacity='0.5';this.textContent='Image failed to load'">`;
 				
 				// Update counter
 				counterDiv.textContent = `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
 
-				// Display thumbnails
-				galleryDiv.innerHTML = currentPhotos.map((photo, index) => `
-					<div class="photo-thumbnail ${index === currentPhotoIndex ? 'active' : ''}" data-photo-index="${index}">
-						<img src="${photo}" alt="Thumb ${index + 1}">
-					</div>
-				`).join('');
-
-				// Add click handlers to thumbnails
-				galleryDiv.querySelectorAll('.photo-thumbnail').forEach(thumb => {
+				// Display thumbnails - create fresh HTML without event listeners
+				galleryDiv.innerHTML = '';
+				currentPhotos.forEach((photo, index) => {
+					const thumb = document.createElement('div');
+					thumb.className = `photo-thumbnail ${index === currentPhotoIndex ? 'active' : ''}`;
+					thumb.dataset.photoIndex = index;
+					thumb.innerHTML = `<img src="${photo}" alt="Thumb ${index + 1}" onerror="this.style.opacity='0.3'">`;
 					thumb.addEventListener('click', () => {
-						currentPhotoIndex = parseInt(thumb.dataset.photoIndex);
+						currentPhotoIndex = index;
 						renderPhotoGallery();
 					});
+					galleryDiv.appendChild(thumb);
 				});
 			}
 
