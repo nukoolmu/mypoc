@@ -111,7 +111,7 @@ faqs:
   - question: "czman"
     answer: "https://www.youtube.com/watch?v=JJJkjP4YqiQ&list=RDJJJkjP4YqiQ&start_radio=1, https://www.youtube.com/watch?v=hKkA0T0Er0c&list=RDhKkA0T0Er0c&start_radio=1, https://www.youtube.com/watch?v=FtU54h9-QiQ&list=RDFtU54h9-QiQ&start_radio=1"
   - question: "froncduche"
-    answer: "./images/logo-ms.jpg, ./images/logo2.png, ./images/char1.jpg, ./images/char2.jpg, ./images/char3.jpg, ./images/char4.jpg, ./images/char5.jpg, ./images/char6.jpg, ./images/char7.jpg"
+    answer: "./images/logo-ms.jpg, ./images/logo2.png, ./images/char1.jpg, ./images/char2.png, ./images/char3.png, ./images/char4.png, ./images/char5.png, ./images/char6.jpg, ./images/char7.jpg"
   # English - Strengths & Development Areas
   - question: "what are your strengths"
     answer: "Strong analytical and problem-solving skills, high ownership and accountability, excellent team leadership, fast learner, adaptable, proactive, and comfortable in fast-paced environments."
