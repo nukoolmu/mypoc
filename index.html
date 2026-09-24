@@ -147,6 +147,236 @@
 		.lang-btn:hover {
 			color: rgba(255, 255, 255, 0.9);
 		}
+
+		.youtube-modal {
+			position: fixed;
+			inset: 0;
+			z-index: 60;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgba(2, 6, 23, 0.92);
+			backdrop-filter: blur(10px);
+			padding: 20px;
+		}
+
+		.youtube-modal.active {
+			display: flex;
+		}
+
+		.youtube-modal-content {
+			position: relative;
+			width: 100%;
+			max-width: 720px;
+			background: rgba(11, 16, 35, 0.95);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 16px;
+			overflow: hidden;
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+		}
+
+		.youtube-modal-close {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+			z-index: 61;
+			width: 36px;
+			height: 36px;
+			border: none;
+			border-radius: 50%;
+			background: rgba(0, 0, 0, 0.4);
+			color: white;
+			font-size: 24px;
+			cursor: pointer;
+			transition: all 240ms ease;
+			display: grid;
+			place-items: center;
+		}
+
+		.youtube-modal-close:hover {
+			background: rgba(0, 0, 0, 0.6);
+		}
+
+		.youtube-iframe {
+			width: 100%;
+			height: 0;
+			padding-bottom: 56.25%;
+			position: relative;
+		}
+
+		.youtube-iframe iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+
+		.youtube-playlist {
+			padding: 16px;
+			max-height: 150px;
+			overflow-y: auto;
+		}
+
+		.youtube-video-item {
+			padding: 10px 12px;
+			margin-bottom: 8px;
+			background: rgba(99, 102, 241, 0.1);
+			border: 1px solid rgba(99, 102, 241, 0.3);
+			border-radius: 8px;
+			cursor: pointer;
+			transition: all 240ms ease;
+			color: rgba(255, 255, 255, 0.8);
+			font-size: 12px;
+		}
+
+		.youtube-video-item:hover,
+		.youtube-video-item.active {
+			background: rgba(99, 102, 241, 0.25);
+			border-color: rgba(99, 102, 241, 0.6);
+			color: white;
+		}
+
+		.photo-modal {
+			position: fixed;
+			inset: 0;
+			z-index: 60;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgba(2, 6, 23, 0.92);
+			backdrop-filter: blur(10px);
+			padding: 20px;
+		}
+
+		.photo-modal.active {
+			display: flex;
+		}
+
+		.photo-modal-content {
+			position: relative;
+			width: 100%;
+			max-width: 800px;
+			background: rgba(11, 16, 35, 0.95);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 16px;
+			overflow: hidden;
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+		}
+
+		.photo-modal-close {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+			z-index: 61;
+			width: 36px;
+			height: 36px;
+			border: none;
+			border-radius: 50%;
+			background: rgba(0, 0, 0, 0.4);
+			color: white;
+			font-size: 24px;
+			cursor: pointer;
+			transition: all 240ms ease;
+			display: grid;
+			place-items: center;
+		}
+
+		.photo-modal-close:hover {
+			background: rgba(0, 0, 0, 0.6);
+		}
+
+		.photo-viewer {
+			position: relative;
+			width: 100%;
+			padding-bottom: 75%;
+			background: #000;
+			overflow: hidden;
+		}
+
+		.photo-viewer img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		.photo-nav {
+			position: absolute;
+			bottom: 16px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 62;
+			display: flex;
+			gap: 8px;
+		}
+
+		.photo-nav-btn {
+			width: 32px;
+			height: 32px;
+			border: none;
+			border-radius: 50%;
+			background: rgba(99, 102, 241, 0.8);
+			color: white;
+			cursor: pointer;
+			font-size: 16px;
+			display: grid;
+			place-items: center;
+			transition: all 240ms ease;
+		}
+
+		.photo-nav-btn:hover {
+			background: rgba(99, 102, 241, 1);
+			transform: scale(1.1);
+		}
+
+		.photo-gallery {
+			padding: 12px;
+			max-height: 120px;
+			overflow-x: auto;
+			display: flex;
+			gap: 8px;
+			background: rgba(0, 0, 0, 0.3);
+		}
+
+		.photo-thumbnail {
+			flex-shrink: 0;
+			width: 80px;
+			height: 80px;
+			border: 2px solid rgba(99, 102, 241, 0.3);
+			border-radius: 8px;
+			cursor: pointer;
+			overflow: hidden;
+			transition: all 240ms ease;
+		}
+
+		.photo-thumbnail img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.photo-thumbnail:hover,
+		.photo-thumbnail.active {
+			border-color: rgba(99, 102, 241, 0.8);
+			transform: scale(1.05);
+		}
+
+		.photo-counter {
+			position: absolute;
+			top: 12px;
+			left: 12px;
+			z-index: 62;
+			background: rgba(0, 0, 0, 0.5);
+			color: white;
+			padding: 6px 12px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: 600;
+		}
 	</style>
 </head>
 <body class="min-h-screen text-slate-100">
@@ -264,15 +494,8 @@
 					<p class="mt-1 text-xs text-slate-400" data-en="Hover to separate polygon pieces" data-th="Hover เพื่อให้ชิ้น polygon แยกออกเล็กน้อย">Hover เพื่อให้ชิ้น polygon แยกออกเล็กน้อย</p>
 				</div>
 			</div>
-
 			<div class="w-full max-w-3xl pb-4 sm:pb-6">
 				<div class="prompt-bar mx-auto flex flex-col gap-3 rounded-[1.5rem] px-4 py-4 sm:flex-row sm:items-center sm:px-5">
-					<div class="flex items-center gap-3 text-slate-300">
-						<div class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-cyan-200">
-							<span class="text-lg">💬</span>
-						</div>
-						<p class="text-sm font-medium" data-en="Ask about Nukool.M" data-th="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น">ถามอะไรได้เกี่ยวกับ Nukool.M เช่น</p>
-					</div>
 					<div class="flex flex-1 gap-2">
 						<input id="chat-input" type="text" placeholder="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น..." class="min-w-0 flex-1 rounded-2xl border border-white/10 bg-[#12172c] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-indigo-400/40 focus:ring-2 focus:ring-indigo-400/20" data-en-placeholder="Ask about Nukool.M..." data-th-placeholder="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น..." />
 						<button id="chat-send" class="rounded-2xl bg-indigo-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400 active:scale-[0.99]" data-en="Ask" data-th="ถาม">ถาม →</button>
@@ -299,6 +522,27 @@
 					<p id="modal-note" class="mt-2 text-sm text-slate-200"></p>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div id="youtube-modal" class="youtube-modal">
+		<div class="youtube-modal-content">
+			<button id="youtube-modal-close" class="youtube-modal-close">×</button>
+			<div class="youtube-iframe" id="youtube-player"></div>
+			<div class="youtube-playlist" id="youtube-playlist"></div>
+		</div>
+	</div>
+
+	<div id="photo-modal" class="photo-modal">
+		<div class="photo-modal-content">
+			<button id="photo-modal-close" class="photo-modal-close">×</button>
+			<div class="photo-counter" id="photo-counter"></div>
+			<div class="photo-viewer" id="photo-viewer"></div>
+			<div class="photo-nav">
+				<button id="photo-prev" class="photo-nav-btn">❮</button>
+				<button id="photo-next" class="photo-nav-btn">❯</button>
+			</div>
+			<div class="photo-gallery" id="photo-gallery"></div>
 		</div>
 	</div>
 
@@ -393,10 +637,13 @@
 				const zone = zoneData[zoneKey];
 				if (!zone) return;
 
-				modalTitle.textContent = zone.title;
-				modalDescription.textContent = zone.description;
-				modalTags.textContent = (zone.keywords || []).join(' · ');
-				modalNote.textContent = zone.note;
+				// Get data based on current language
+				const langData = zone[currentLanguage] || zone.en || zone;
+				
+				modalTitle.textContent = langData.title;
+				modalDescription.textContent = langData.description;
+				modalTags.textContent = (langData.keywords || []).join(' · ');
+				modalNote.textContent = langData.note || '';
 
 				modalBackdrop.classList.remove('hidden');
 				modalBackdrop.classList.add('flex');
@@ -419,40 +666,186 @@
 			function answerQuery(rawQuery) {
 				const query = normalize(rawQuery);
 				if (!query) {
-					return 'พิมพ์คำถามสั้น ๆ ได้เลย เช่น “เล่าเรื่อง ผลงาน” หรือ “what is this page?”';
+					return currentLanguage === 'en' 
+						? 'Type a short question like "background zone" or "what is this page?"'
+						: 'พิมพ์คำถามสั้น ๆ ได้เลย เช่น "background zone" หรือ "what is this page?"';
 				}
 
 				if (/(hello|hi|สวัสดี|hey)/i.test(query)) {
-					return `สวัสดีครับ ฉันคือ chatbot เล็ก ๆ ของ ${profile.name || 'portfolio นี้'} ลองถามเรื่อง background, hobby, technical skill, innovation, strong and weak point ได้เลย`;
+					return currentLanguage === 'en'
+						? `Hi! I'm a tiny chatbot for ${profile.name || 'this portfolio'}. Try asking about hair, glasses, face, collar, shirt zones.`
+						: `สวัสดีครับ ฉันคือ chatbot เล็ก ๆ ของ ${profile.name || 'portfolio นี้'} ลองถามเรื่อง hair, glasses, face, collar, shirt ได้เลย`;
 				}
 
 				const exactFaq = faqList.find((faq) => query.includes(normalize(faq.question)) || normalize(faq.question).includes(query));
 				if (exactFaq) return exactFaq.answer;
 
 				const zoneEntries = Object.entries(zoneData)
-					.map(([key, zone]) => ({ key, zone, score: scoreMatch(query, [key, zone.title, ...(zone.keywords || [])]) }))
-					.sort((a, b) => b.score - a.score);
+				.map(([key, zone]) => {
+					const langZone = zone[currentLanguage] || zone.en || zone;
+					return {
+						key,
+						zone: langZone,
+						score: scoreMatch(query, [key, langZone.title, ...(langZone.keywords || [])])
+					};
+				})
+				.sort((a, b) => b.score - a.score);
 
-				const bestZone = zoneEntries[0];
-				if (bestZone && bestZone.score > 0) {
-					return `${bestZone.zone.title}: ${bestZone.zone.description} ${bestZone.zone.note}`;
-				}
+			const bestZone = zoneEntries[0];
+			if (bestZone && bestZone.score > 0) {
+				return `${bestZone.zone.title}: ${bestZone.zone.description} ${bestZone.zone.note || ''}`;
+			}
 
-				if (query.includes('profile') || query.includes('summary') || query.includes('about')) {
-					return `${profile.name || 'Profile'} · ${profile.role || ''}. ${profile.summary || ''}`;
-				}
+			if (query.includes('profile') || query.includes('summary') || query.includes('about')) {
+				return `${profile.name || 'Profile'} · ${profile.role || ''}. ${profile.summary || ''}`;
+			}
 
-				return 'ฉันยังไม่พบคำตอบตรง ๆ จากบันทึกของ profile ลองใช้คำว่า background, hobby, technical skill, innovation, strong and weak point, profile, หรือ summary นะครับ';
+			return currentLanguage === 'en'
+				? 'I couldn\'t find a matching answer. Try keywords like background, hobby, technical skill, innovation, strong and weak point, profile, or summary.'
+				: 'ฉันยังไม่พบคำตอบตรง ๆ จากบันทึกของ profile ลองใช้คำว่า background, hobby, technical skill, innovation, strong and weak point, profile, หรือ summary นะครับ';
 			}
 
 			function renderChatAnswer(question) {
 				const answer = answerQuery(question);
-				chatOutput.innerHTML = `
-					<div class="space-y-2">
-						<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
-						<p>${answer}</p>
+				const youtubeLinks = extractYouTubeLinks(answer);
+				const imageLinks = extractImageLinks(answer);
+				
+				if (youtubeLinks.length > 0) {
+					showYouTubeModal(youtubeLinks);
+					chatOutput.innerHTML = `
+						<div class="space-y-2">
+							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
+							<p class="text-cyan-300 font-medium">🎵 Found ${youtubeLinks.length} YouTube video(s)! Opening player...</p>
+						</div>
+					`;
+				} else if (imageLinks.length > 0) {
+					showPhotoModal(imageLinks);
+					chatOutput.innerHTML = `
+						<div class="space-y-2">
+							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
+							<p class="text-amber-300 font-medium">🖼️ Found ${imageLinks.length} photo(s)! Opening gallery...</p>
+						</div>
+					`;
+				} else {
+					chatOutput.innerHTML = `
+						<div class="space-y-2">
+							<p class="text-xs uppercase tracking-[0.3em] text-cyan-200/70">Answer</p>
+							<p>${answer}</p>
+						</div>
+					`;
+				}
+			}
+
+			function extractYouTubeLinks(text) {
+				const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})|(?:https?:\/\/)?youtu\.be\/([a-zA-Z0-9_-]{11})/g;
+				const links = [];
+				let match;
+				while ((match = youtubeRegex.exec(text)) !== null) {
+					const videoId = match[1] || match[2];
+					if (videoId && !links.includes(videoId)) {
+						links.push(videoId);
+					}
+				}
+				return links;
+			}
+
+			function showYouTubeModal(videoIds) {
+				const modal = document.getElementById('youtube-modal');
+				const playerDiv = document.getElementById('youtube-player');
+				const playlistDiv = document.getElementById('youtube-playlist');
+				
+				if (!videoIds || videoIds.length === 0) return;
+
+				// Display first video
+				const firstVideoId = videoIds[0];
+				playerDiv.innerHTML = `<iframe src="https://www.youtube.com/embed/${firstVideoId}?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+				// Display playlist
+				playlistDiv.innerHTML = videoIds.map((id, index) => `
+					<div class="youtube-video-item ${index === 0 ? 'active' : ''}" data-video-id="${id}">
+						Video ${index + 1}
 					</div>
-				`;
+				`).join('');
+
+				// Add click handlers to playlist items
+				playlistDiv.querySelectorAll('.youtube-video-item').forEach(item => {
+					item.addEventListener('click', () => {
+						const videoId = item.dataset.videoId;
+						playerDiv.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+						
+						playlistDiv.querySelectorAll('.youtube-video-item').forEach(el => {
+							el.classList.remove('active');
+						});
+						item.classList.add('active');
+					});
+				});
+
+				modal.classList.add('active');
+			}
+
+			function closeYouTubeModal() {
+				document.getElementById('youtube-modal').classList.remove('active');
+				document.getElementById('youtube-player').innerHTML = '';
+			}
+
+			function extractImageLinks(text) {
+				const imageRegex = /(?:https?:)?\/\/[^\s)]+\.(?:jpg|jpeg|png|gif|webp|svg)/gi;
+				const links = [];
+				let match;
+				while ((match = imageRegex.exec(text)) !== null) {
+					if (!links.includes(match[0])) {
+						links.push(match[0]);
+					}
+				}
+				return links;
+			}
+
+			let currentPhotoIndex = 0;
+			let currentPhotos = [];
+
+			function showPhotoModal(imageLinks) {
+				currentPhotos = imageLinks;
+				currentPhotoIndex = 0;
+				const modal = document.getElementById('photo-modal');
+				
+				if (!imageLinks || imageLinks.length === 0) return;
+
+				renderPhotoGallery();
+				modal.classList.add('active');
+			}
+
+			function renderPhotoGallery() {
+				const viewerDiv = document.getElementById('photo-viewer');
+				const galleryDiv = document.getElementById('photo-gallery');
+				const counterDiv = document.getElementById('photo-counter');
+				const currentPhoto = currentPhotos[currentPhotoIndex];
+
+				// Display main photo
+				viewerDiv.innerHTML = `<img src="${currentPhoto}" alt="Photo ${currentPhotoIndex + 1}" onload="this.style.opacity='1'" style="opacity:0;transition:opacity 300ms ease;">`;
+				
+				// Update counter
+				counterDiv.textContent = `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
+
+				// Display thumbnails
+				galleryDiv.innerHTML = currentPhotos.map((photo, index) => `
+					<div class="photo-thumbnail ${index === currentPhotoIndex ? 'active' : ''}" data-photo-index="${index}">
+						<img src="${photo}" alt="Thumb ${index + 1}">
+					</div>
+				`).join('');
+
+				// Add click handlers to thumbnails
+				galleryDiv.querySelectorAll('.photo-thumbnail').forEach(thumb => {
+					thumb.addEventListener('click', () => {
+						currentPhotoIndex = parseInt(thumb.dataset.photoIndex);
+						renderPhotoGallery();
+					});
+				});
+			}
+
+			function closePhotoModal() {
+				document.getElementById('photo-modal').classList.remove('active');
+				currentPhotoIndex = 0;
+				currentPhotos = [];
 			}
 
 			function wireInteractions() {
@@ -510,6 +903,42 @@
 			}
 
 			loadYamlData();
+
+			// YouTube modal close button
+			document.getElementById('youtube-modal-close').addEventListener('click', closeYouTubeModal);
+			document.getElementById('youtube-modal').addEventListener('click', (e) => {
+				if (e.target.id === 'youtube-modal') closeYouTubeModal();
+			});
+
+			// Photo modal close button and navigation
+			document.getElementById('photo-modal-close').addEventListener('click', closePhotoModal);
+			document.getElementById('photo-modal').addEventListener('click', (e) => {
+				if (e.target.id === 'photo-modal') closePhotoModal();
+			});
+
+			document.getElementById('photo-next').addEventListener('click', () => {
+				currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
+				renderPhotoGallery();
+			});
+
+			document.getElementById('photo-prev').addEventListener('click', () => {
+				currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
+				renderPhotoGallery();
+			});
+
+			// Keyboard navigation for photo gallery
+			document.addEventListener('keydown', (e) => {
+				if (!document.getElementById('photo-modal').classList.contains('active')) return;
+				if (e.key === 'ArrowRight') {
+					currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
+					renderPhotoGallery();
+				} else if (e.key === 'ArrowLeft') {
+					currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
+					renderPhotoGallery();
+				} else if (e.key === 'Escape') {
+					closePhotoModal();
+				}
+			});
 		});
 	</script>
 </body>

@@ -6,29 +6,59 @@ profile:
 
 zones:
   hair:
-    title: "Backgound"
-    description: "I was born in 1991 in Sukhothai, Thailand. I have a strong passion for technology, design, and music. In 2012, I graduated with a Bachelor's degree in Computer Science from North Bangkok University and have been working in the IT field ever since. My career includes 3 years as an IT Operations at Kasikornbank (outsourced via MFEC) and another 3 years as an IT Outsourcing System engineer at AIS. Subsequently, I was promoted to IT Specialist Team Leader at AIS, a position I currently hold."
-    keywords: ["background", "role", "responsibility", "experience", "crown"]
+    en:
+      title: "Backgound"
+      description: "I was born in 1991 in Sukhothai, Thailand. I have a strong passion for technology, design, and music. In 2012, I graduated with a Bachelor's degree in Computer Science from North Bangkok University and have been working in the IT field ever since. My career includes 3 years as an IT Operations at Kasikornbank (outsourced via MFEC) and another 3 years as an IT Outsourcing System engineer at AIS. Subsequently, I was promoted to IT Specialist Team Leader at AIS, a position I currently hold."
+      keywords: ["background", "role", "responsibility", "experience", "crown"]
+    th:
+      title: "ประวัติพื้นหลัง"
+      description: "เกิดปี 2534 ที่จังหวัดสุโขทัย ประเทศไทย มีความสนใจอย่างมากในด้านเทคโนโลยี ดีไซน์ และเพลง สำเร็จการศึกษาปี 2555 ด้านวิทยาศาสตร์คอมพิวเตอร์จากมหาวิทยาลัยหัวเมืองเหนือ และเป็นระยะเวลามากกว่า 10 ปีในการทำงานในด้านไอที มีประสบการณ์ 3 ปีเป็น IT Operations ที่ธนาคารกสิกรไทย (outsourced via MFEC) และอีก 3 ปีเป็น IT Outsourcing System Engineer ที่ AIS จากนั้นได้เลื่อนตำแหน่งเป็น IT Specialist Team Leader ในตำแหน่งปัจจุบัน"
+      keywords: ["ประวัติ", "บทบาท", "ความรับผิดชอบ", "ประสบการณ์", "พื้นหลัง", "เกี่ยวกับฉัน"]
   glasses:
-    title: "Hobby"
-    description: "Beyond my technical career, I am a passionate graphic designer, rapper, and home cook. I have a deep love for design and music, particularly enjoying creating cartoon characters and logos. In my free time, I love experimenting with new recipes and cooking techniques."
-    note: "A Rapper A.K.A czman , Graphic Designer A.K.A froncduche"
-    keywords: ["Hobby", "softskill", "focus", "vision", "detail"]
+    en:
+      title: "Hobby"
+      description: "Beyond my technical career, I am a passionate graphic designer, rapper, and home cook. I have a deep love for design and music, particularly enjoying creating cartoon characters and logos. In my free time, I love experimenting with new recipes and cooking techniques."
+      note: "A Rapper A.K.A czman , Graphic Designer A.K.A froncduche"
+      keywords: ["Hobby", "softskill", "focus", "vision", "detail"]
+    th:
+      title: "งานอดิเรก"
+      description: "นอกจากการทำงานด้านเทคโนโลยี ฉันเป็นนักออกแบบกราฟิก rapper และนักปรุงอาหาร มีความรักและหลงใหลในด้านดีไซน์และเพลง โดยเฉพาะการออกแบบตัวการ์ตูนและโลโก้ ในเวลาว่างฉันชอบทดลองสูตรอาหารใหม่ ๆ และเทคนิคการปรุงอาหาร"
+      note: "Rapper ชื่อเล่น czman, Graphic Designer ชื่อเล่น froncduche"
+      keywords: ["งานอดิเรก", "ทักษะนอกเหนือ", "เน้น", "วิสัยทัศน์", "รายละเอียด"]
   face:
-    title: "technical Skill"
-    description: "I am a Tech Transformation and Innovation Enthusiast with a strong background in DevOps, Cloud Computing, and IT Infrastructure. I specialize in designing and managing high-performance computer systems and networks, ensuring optimal efficiency, security, and reliability. Leveraging my expertise in software development, I build innovative, user-centric solutions that drive digital transformation."
-    note: "Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana,Ansible, Terraform, Bash"
-    keywords: ["technology", "skill", "expression", "tech", "identity"]
+    en:
+      title: "technical Skill"
+      description: "I am a Tech Transformation and Innovation Enthusiast with a strong background in DevOps, Cloud Computing, and IT Infrastructure. I specialize in designing and managing high-performance computer systems and networks, ensuring optimal efficiency, security, and reliability. Leveraging my expertise in software development, I build innovative, user-centric solutions that drive digital transformation."
+      note: "Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana,Ansible, Terraform, Bash"
+      keywords: ["technology", "skill", "experience", "tech", "identity"]
+    th:
+      title: "ทักษะทางเทคนิค"
+      description: "ฉันเป็นผู้ที่มีความสนใจและหลงใหลในการแปลงเทคโนโลยีและนวัตกรรม มีพื้นฐานความรู้ที่มั่นคงในด้าน DevOps, Cloud Computing และ IT Infrastructure ฉันเชี่ยวชาญในการออกแบบและบริหารจัดการระบบคอมพิวเตอร์และเครือข่ายประสิทธิภาพสูง เพื่อให้มั่นใจได้ว่าการทำงานที่เหมาะสมที่สุด ความปลอดภัย และความเชื่อถือได้ โดยใช้ประสบการณ์ด้านการพัฒนาซอฟต์แวร์ ฉันสร้างสารแก้ปัญหาที่เป็นนวัตกรรมและเน้นผู้ใช้ที่ขับเคลื่อนการแปลงเทคโนโลยีดิจิทัล"
+      note: "Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana, Ansible, Terraform, Bash"
+      keywords: ["เทคโนโลยี", "ทักษะ", "ประสบการณ์", "เทค", "เอกลักษณ์"]
   collar:
-    title: "Innovation"
-    description: "To overcome VM scaling limitations, I architected OC-Loadtester—a hyperscale load-testing simulator leveraging distributed JMeter within a microservices framework. Additionally, I conceptualized and deployed an integrated deployment pipeline combining rolling update strategies with A/B testing capabilities."
-    note: "As the sole creator and architect of OC-Loadtester, I took on the challenge of ensuring zero-downtime, fully automated deployments. To achieve this, I conceptualized and engineered an absolute continuous deployment framework that seamlessly handles release management."
-    keywords: ["Innovation", "idea", "creative", "structure"]
+    en:
+      title: "Innovation"
+      description: "To overcome VM scaling limitations, I architected OC-Loadtester—a hyperscale load-testing simulator leveraging distributed JMeter within a microservices framework. Additionally, I conceptualized and deployed an integrated deployment pipeline combining rolling update strategies with A/B testing capabilities."
+      note: "As the sole creator and architect of OC-Loadtester, I took on the challenge of ensuring zero-downtime, fully automated deployments. To achieve this, I conceptualized and engineered an absolute continuous deployment framework that seamlessly handles release management."
+      keywords: ["Innovation", "idea", "creative", "structure"]
+    th:
+      title: "นวัตกรรม"
+      description: "เพื่อแก้ปัญหาข้อจำกัดของ VM scaling ฉันได้สร้าง OC-Loadtester ซึ่งเป็นเครื่องจำลองการทดสอบภาระงานขนาดใหญ่ โดยใช้ประโยชน์จาก JMeter แบบกระจายภายในกรอบงาน microservices นอกจากนี้ ฉันยังได้วางแผนและปรับใช้ pipeline การปรับใช้ที่บูรณาการรวมกลยุทธ์การอัพเดทแบบค่อยเป็นค่อยไปและความสามารถในการทดสอบ A/B"
+      note: "ในฐานะผู้สร้างและสถาปนิกเพียงคนเดียวของ OC-Loadtester ฉันได้รับความท้าทายในการรับประกันการปรับใช้ที่ไม่มีการหยุดและทั้งหมดอัตโนมัติ เพื่อให้บรรลุเป้าหมายนี้ ฉันได้วางแผนและออกแบบกรอบการปรับใช้อย่างต่อเนื่องที่จัดการการออกรุ่นอย่างราบรื่น"
+      keywords: ["นวัตกรรม", "ความคิด", "สร้างสรรค์", "โครงสร้าง"]
   shirt:
-    title: "strong and weak point"
-    description: "Professional Strengths. Strong analytical and problem-solving skills with a systematic approach to complex technical challenges. High ownership, accountability, and a strong commitment to delivering results. Experienced in leading teams, improving collaboration, and driving continuous improvement. Fast learner with a strong interest in emerging technologies, AI, cloud infrastructure, and automation. Adaptable, proactive, and comfortable working in fast-paced and changing environments."
-    note: "Development Areas. Continuously improving prioritization and delegation to maintain focus across multiple initiatives. Developing stronger strategic communication and stakeholder management skills for broader leadership responsibilities. Further strengthening professional English communication for global and cross-cultural environments."
-    keywords: ["strong", "weak", "improvement", "base", "professional"]
+    en:
+      title: "strong and weak point"
+      description: "Professional Strengths. Strong analytical and problem-solving skills with a systematic approach to complex technical challenges. High ownership, accountability, and a strong commitment to delivering results. Experienced in leading teams, improving collaboration, and driving continuous improvement. Fast learner with a strong interest in emerging technologies, AI, cloud infrastructure, and automation. Adaptable, proactive, and comfortable working in fast-paced and changing environments."
+      note: "Development Areas. Continuously improving prioritization and delegation to maintain focus across multiple initiatives. Developing stronger strategic communication and stakeholder management skills for broader leadership responsibilities. Further strengthening professional English communication for global and cross-cultural environments."
+      keywords: ["strong", "weak", "improvement", "base", "professional"]
+    th:
+      title: "จุดแข็งและจุดอ่อน"
+      description: "จุดแข็ง ทักษะการวิเคราะห์และแก้ปัญหาที่เข้มแข็ง พร้อมแนวทางการจัดการที่เป็นระบบในการเผชิญความท้าทายทางเทคนิคที่ซับซ้อน ความเป็นเจ้าของงาน ความรับผิดชอบ และความมุ่งมั่นที่แข็งแกร่งในการนำเสนอผลลัพธ์ มีประสบการณ์ในการนำทีม การปรับปรุงความร่วมมือ และการขับเคลื่อนการปรับปรุงอย่างต่อเนื่อง ผู้เรียนรู้ได้เร็วที่มีความสนใจเป็นอย่างมากในเทคโนโลยีที่เกิดขึ้นใหม่ AI โครงสร้างพื้นฐานระบบคลาวด์ และการอัตโนมัติ มีความยืดหยุ่น เป็นผู้ริเริ่ม และสามารถทำงานได้อย่างสบายใจในสภาวะการทำงานที่เปลี่ยนแปลงอย่างรวดเร็ว"
+      note: "พื้นที่พัฒนา การปรับปรุงลำดับความสำคัญและการมอบหมายงานอย่างต่อเนื่องเพื่อรักษาการมุ่งเน้นในมูลค่าหลายอย่าง การพัฒนาการสื่อสารเชิงกลยุทธ์ที่เข้มแข็งขึ้นและทักษะการจัดการผู้มีส่วนได้ส่วนเสียสำหรับความรับผิดชอบด้านการนำที่กว้างขึ้น การเพิ่มพูนความสามารถในการสื่อสารภาษาอังกฤษเชิงวิชาชีพสำหรับสภาพแวดล้อมระดับโลกและข้ามวัฒนธรรม"
+      keywords: ["แข็ง", "อ่อน", "การปรับปรุง", "พื้นฐาน", "มืออาชีพ"]
+
 
 faqs:
   # English - General & Navigation
@@ -78,7 +108,10 @@ faqs:
     answer: "Yes, I'm a rapper with the stage name 'czman'. I have a deep love for music and design."
   - question: "home cook"
     answer: "I'm passionate about cooking and love experimenting with new recipes and techniques in my free time."
-  
+  - question: "czman"
+    answer: "https://www.youtube.com/watch?v=JJJkjP4YqiQ&list=RDJJJkjP4YqiQ&start_radio=1, https://www.youtube.com/watch?v=hKkA0T0Er0c&list=RDhKkA0T0Er0c&start_radio=1, https://www.youtube.com/watch?v=FtU54h9-QiQ&list=RDFtU54h9-QiQ&start_radio=1"
+  - question: "froncduche"
+    answer: "images/logo-ms.jpg"
   # English - Strengths & Development Areas
   - question: "what are your strengths"
     answer: "Strong analytical and problem-solving skills, high ownership and accountability, excellent team leadership, fast learner, adaptable, proactive, and comfortable in fast-paced environments."
@@ -95,7 +128,7 @@ faqs:
   - question: "คุณทำงานอะไร"
     answer: "ฉันทำงานเป็น IT Specialist Team Leader ที่ดูแลด้านระบบและเทคโนโลยีสารสนเทศ"
   - question: "พื้นหลัง"
-    answer: "เกิดปี 2534 ที่จังหวัดสุโขทัย สำเร็จการศึกษาปี 2555 สาขาวิทยาศาสตร์คอมพิวเตอร์ จากมหาวิทยาลัยหัวเมืองเหนือ ทำงาน IT Operations ที่ธนาคารกสิกรไทย 3 ปี และ IT Outsourcing System Engineer ที่ AIS 3 ปี แล้วเลื่อนตำแหน่งเป็น IT Specialist Team Leader"
+    answer: "เกิดปี 2534 ที่จังหวัดสุโขทัย สำเร็จการศึกษาปี 2555 สาขาวิทยาศาสตร์คอมพิวเตอร์ จากมหาวิทยาลัยนอร์ทกรุงเทพ ทำงาน IT Operations ที่ธนาคารกสิกรไทย 3 ปี และ IT Outsourcing System Engineer ที่ AIS 3 ปี แล้วเลื่อนตำแหน่งเป็น IT Specialist Team Leader"
   
   # Thai - ทักษะเทคนิค
   - question: "ทักษะเทคนิค"
