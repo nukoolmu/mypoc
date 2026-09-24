@@ -111,19 +111,60 @@
 			border: 1px solid rgba(255, 255, 255, 0.08);
 			box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 		}
+
+		.lang-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 50;
+			display: inline-flex;
+			align-items: center;
+			background: rgba(11, 16, 35, 0.85);
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			border-radius: 9999px;
+			padding: 4px 4px;
+			backdrop-filter: blur(12px);
+		}
+
+		.lang-btn {
+			padding: 8px 16px;
+			border-radius: 9999px;
+			border: none;
+			cursor: pointer;
+			font-size: 13px;
+			font-weight: 600;
+			transition: all 240ms ease;
+			background: transparent;
+			color: rgba(255, 255, 255, 0.6);
+		}
+
+		.lang-btn.active {
+			background: rgba(99, 102, 241, 0.9);
+			color: white;
+			box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+		}
+
+		.lang-btn:hover {
+			color: rgba(255, 255, 255, 0.9);
+		}
 	</style>
 </head>
 <body class="min-h-screen text-slate-100">
+	<div class="lang-toggle" id="langToggle">
+		<button class="lang-btn active" data-lang="en">EN</button>
+		<button class="lang-btn" data-lang="th">TH</button>
+	</div>
+
 	<main class="page-shell mx-auto flex min-h-screen max-w-4xl flex-col px-4 py-8 sm:px-6 lg:px-8">
 		<section class="flex min-h-screen flex-col items-center justify-between gap-8">
 			<div class="w-full text-center pt-8 sm:pt-10">
 				<div class="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.35em] text-indigo-100/80">
-					Interactive Polygon Profile
+					<span data-en="Interactive Polygon Profile" data-th="โปรไฟล์พอลิกอนแบบโต้ตอบ">Interactive Polygon Profile</span>
 				</div>
 				<h1 class="hero-title mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl">
-					Nukool.M's Profile
+					<span data-en="Nukool.M's Profile" data-th="โปรไฟล์ของ นูกูล">Nukool.M's Profile</span>
 				</h1>
-				<p class="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
+				<p class="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base" data-en="Click on different parts of the face to see details about me" data-th="คลิกที่ส่วนต่างๆ ของใบหน้าเพื่อดูรายละเอียดเกี่ยวกับผม">
 					คลิกที่ส่วนต่างๆ ของใบหน้าเพื่อดูรายละเอียดเกี่ยวกับผม
 				</p>
 			</div>
@@ -219,10 +260,10 @@
 						</g>
 					</svg>
 					<div class="mt-5 text-center">
-						<p class="text-sm font-medium text-white">คลิกส่วนใดส่วนหนึ่งเพื่อดูรายละเอียด</p>
-						<p class="mt-1 text-xs text-slate-400">Hover เพื่อให้ชิ้น polygon แยกออกเล็กน้อย</p>
-					</div>
+					<p class="text-sm font-medium text-white" data-en="Click any part to see details" data-th="คลิกส่วนใดส่วนหนึ่งเพื่อดูรายละเอียด">คลิกส่วนใดส่วนหนึ่งเพื่อดูรายละเอียด</p>
+					<p class="mt-1 text-xs text-slate-400" data-en="Hover to separate polygon pieces" data-th="Hover เพื่อให้ชิ้น polygon แยกออกเล็กน้อย">Hover เพื่อให้ชิ้น polygon แยกออกเล็กน้อย</p>
 				</div>
+			</div>
 
 			<div class="w-full max-w-3xl pb-4 sm:pb-6">
 				<div class="prompt-bar mx-auto flex flex-col gap-3 rounded-[1.5rem] px-4 py-4 sm:flex-row sm:items-center sm:px-5">
@@ -230,11 +271,11 @@
 						<div class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-cyan-200">
 							<span class="text-lg">💬</span>
 						</div>
-						<p class="text-sm font-medium">ถามอะไรได้เกี่ยวกับ Nukool.M เช่น</p>
+						<p class="text-sm font-medium" data-en="Ask about Nukool.M" data-th="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น">ถามอะไรได้เกี่ยวกับ Nukool.M เช่น</p>
 					</div>
 					<div class="flex flex-1 gap-2">
-						<input id="chat-input" type="text" placeholder="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น..." class="min-w-0 flex-1 rounded-2xl border border-white/10 bg-[#12172c] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-indigo-400/40 focus:ring-2 focus:ring-indigo-400/20" />
-						<button id="chat-send" class="rounded-2xl bg-indigo-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400 active:scale-[0.99]">ถาม →</button>
+						<input id="chat-input" type="text" placeholder="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น..." class="min-w-0 flex-1 rounded-2xl border border-white/10 bg-[#12172c] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-indigo-400/40 focus:ring-2 focus:ring-indigo-400/20" data-en-placeholder="Ask about Nukool.M..." data-th-placeholder="ถามอะไรได้เกี่ยวกับ Nukool.M เช่น..." />
+						<button id="chat-send" class="rounded-2xl bg-indigo-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400 active:scale-[0.99]" data-en="Ask" data-th="ถาม">ถาม →</button>
 					</div>
 				</div>
 				<div id="chat-output" class="chat-answer mx-auto mt-3 min-h-[56px] max-w-3xl rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"></div>
@@ -245,16 +286,16 @@
 	<div id="modal-backdrop" class="modal-backdrop fixed inset-0 z-40 hidden items-center justify-center px-4 py-6">
 		<div id="modal-panel" class="fade-in relative w-full max-w-2xl rounded-[1.75rem] border border-white/10 bg-slate-950/95 p-6 shadow-2xl shadow-cyan-950/30">
 			<button id="modal-close" class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-lg text-slate-300 transition hover:bg-white/10 hover:text-white" aria-label="Close modal">×</button>
-			<p class="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Zone detail</p>
+			<p class="text-xs uppercase tracking-[0.35em] text-cyan-200/80" data-en="Zone detail" data-th="รายละเอียดโซน">Zone detail</p>
 			<h3 id="modal-title" class="mt-2 text-2xl font-semibold text-white"></h3>
 			<p id="modal-description" class="mt-4 text-sm leading-7 text-slate-300"></p>
 			<div class="mt-6 grid gap-3 sm:grid-cols-2">
 				<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-					<p class="text-xs uppercase tracking-[0.3em] text-slate-500">Keywords</p>
+					<p class="text-xs uppercase tracking-[0.3em] text-slate-500" data-en="Keywords" data-th="คำหลัก">Keywords</p>
 					<p id="modal-tags" class="mt-2 text-sm text-slate-200"></p>
 				</div>
 				<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-					<p class="text-xs uppercase tracking-[0.3em] text-slate-500">Note</p>
+					<p class="text-xs uppercase tracking-[0.3em] text-slate-500" data-en="Note" data-th="หมายเหตุ">Note</p>
 					<p id="modal-note" class="mt-2 text-sm text-slate-200"></p>
 				</div>
 			</div>
@@ -262,6 +303,69 @@
 	</div>
 
 	<script>
+		// Language system
+		let currentLanguage = 'en';
+
+		const translations = {
+			en: {
+				'Ask →': 'Ask →',
+				'Answer': 'Answer',
+				'Zone detail': 'Zone detail',
+				'Keywords': 'Keywords',
+				'Note': 'Note'
+			},
+			th: {
+				'Ask →': 'ถาม →',
+				'Answer': 'คำตอบ',
+				'Zone detail': 'รายละเอียดโซน',
+				'Keywords': 'คำหลัก',
+				'Note': 'หมายเหตุ'
+			}
+		};
+
+		function changeLanguage(lang) {
+			currentLanguage = lang;
+			localStorage.setItem('selectedLanguage', lang);
+			
+			// Update active button
+			document.querySelectorAll('.lang-btn').forEach(btn => {
+				btn.classList.toggle('active', btn.dataset.lang === lang);
+			});
+
+			// Update HTML lang attribute
+			document.documentElement.lang = lang;
+
+			// Update all translatable elements
+			document.querySelectorAll('[data-en][data-th]').forEach(el => {
+				el.textContent = el.dataset[lang] || el.textContent;
+			});
+
+			// Update input placeholder
+			const chatInput = document.getElementById('chat-input');
+			if (chatInput) {
+				chatInput.placeholder = lang === 'en' ? 
+					'Ask about Nukool.M...' : 
+					'ถามอะไรได้เกี่ยวกับ Nukool.M เช่น...';
+			}
+
+			// Update chat send button
+			const chatSend = document.getElementById('chat-send');
+			if (chatSend) {
+				chatSend.textContent = lang === 'en' ? 'Ask →' : 'ถาม →';
+			}
+		}
+
+		// Initialize language toggle
+		document.querySelectorAll('.lang-btn').forEach(btn => {
+			btn.addEventListener('click', () => {
+				changeLanguage(btn.dataset.lang);
+			});
+		});
+
+		// Load saved language preference
+		const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+		changeLanguage(savedLanguage);
+
 		document.addEventListener('DOMContentLoaded', () => {
 			const modalBackdrop = document.getElementById('modal-backdrop');
 			const modalTitle = document.getElementById('modal-title');
@@ -315,11 +419,11 @@
 			function answerQuery(rawQuery) {
 				const query = normalize(rawQuery);
 				if (!query) {
-					return 'พิมพ์คำถามสั้น ๆ ได้เลย เช่น “เล่าเรื่อง face zone” หรือ “what is this page?”';
+					return 'พิมพ์คำถามสั้น ๆ ได้เลย เช่น “เล่าเรื่อง ผลงาน” หรือ “what is this page?”';
 				}
 
 				if (/(hello|hi|สวัสดี|hey)/i.test(query)) {
-					return `สวัสดีครับ ฉันคือ chatbot เล็ก ๆ ของ ${profile.name || 'portfolio นี้'} ลองถามเรื่อง hair, glasses, face, collar, shirt ได้เลย`;
+					return `สวัสดีครับ ฉันคือ chatbot เล็ก ๆ ของ ${profile.name || 'portfolio นี้'} ลองถามเรื่อง background, hobby, technical skill, innovation, strong and weak point ได้เลย`;
 				}
 
 				const exactFaq = faqList.find((faq) => query.includes(normalize(faq.question)) || normalize(faq.question).includes(query));
@@ -338,7 +442,7 @@
 					return `${profile.name || 'Profile'} · ${profile.role || ''}. ${profile.summary || ''}`;
 				}
 
-				return 'ฉันยังไม่พบคำตอบตรง ๆ จากบันทึกของ profile ลองใช้คำว่า hair, glasses, face, collar, shirt, profile, หรือ summary นะครับ';
+				return 'ฉันยังไม่พบคำตอบตรง ๆ จากบันทึกของ profile ลองใช้คำว่า background, hobby, technical skill, innovation, strong and weak point, profile, หรือ summary นะครับ';
 			}
 
 			function renderChatAnswer(question) {

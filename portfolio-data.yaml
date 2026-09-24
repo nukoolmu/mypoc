@@ -1,37 +1,37 @@
 profile:
-  name: "์Nukool Muangsoon"
+  name: "Nukool Muangsoon"
   nickname: "Ra"
   role: "IT Specialist Team Leader"
   summary: "A minimalist portrait built from symmetric low-poly geometry, designed to demonstrate motion, interaction, and data-driven UI in a single HTML file."
 
 zones:
   hair:
-    title: "Hair"
-    description: "The hair zone is intentionally angular and layered to create silhouette clarity and visual rhythm. The exploded hover animation gives the top crown section a sense of floating depth."
-    note: "Use this section when you want to communicate motion, style, and a bold first impression."
-    keywords: ["hair", "style", "motion", "top", "crown"]
+    title: "Backgound"
+    description: "I was born in 1991 in Sukhothai, Thailand. I have a strong passion for technology, design, and music. In 2012, I graduated with a Bachelor's degree in Computer Science from North Bangkok University and have been working in the IT field ever since. My career includes 3 years as an IT Operations at Kasikornbank (outsourced via MFEC) and another 3 years as an IT Outsourcing System engineer at AIS. Subsequently, I was promoted to IT Specialist Team Leader at AIS, a position I currently hold."
+    keywords: ["background", "role", "responsibility", "experience", "crown"]
   glasses:
-    title: "Glasses"
-    description: "The glasses section adds precision and balance to the portrait. The narrow bridge and lens geometry are optimized for a clean, technical look with a subtle cyan glow."
-    note: "This zone suggests focus, detail orientation, and a modern analytical personality."
-    keywords: ["glasses", "lens", "focus", "vision", "detail"]
+    title: "Hobby"
+    description: "Beyond my technical career, I am a passionate graphic designer, rapper, and home cook. I have a deep love for design and music, particularly enjoying creating cartoon characters and logos. In my free time, I love experimenting with new recipes and cooking techniques."
+    note: "A Rapper A.K.A czman , Graphic Designer A.K.A froncduche"
+    keywords: ["Hobby", "softskill", "focus", "vision", "detail"]
   face:
-    title: "Face"
-    description: "The face zone is the emotional core of the portrait. Faceted planes define cheeks, nose, chin, and shadows while keeping the overall structure symmetrical."
-    note: "The face is where brand character and human warmth live in the composition."
-    keywords: ["face", "personality", "expression", "skin", "identity"]
+    title: "technical Skill"
+    description: "I am a Tech Transformation and Innovation Enthusiast with a strong background in DevOps, Cloud Computing, and IT Infrastructure. I specialize in designing and managing high-performance computer systems and networks, ensuring optimal efficiency, security, and reliability. Leveraging my expertise in software development, I build innovative, user-centric solutions that drive digital transformation."
+    note: "Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana,Ansible, Terraform, Bash"
+    keywords: ["technology", "skill", "expression", "tech", "identity"]
   collar:
-    title: "Collar"
-    description: "The collar frames the lower face and transitions the portrait into a professional outfit. The folded geometry creates a crisp formal edge."
-    note: "This section signals structure, polish, and attention to presentation."
-    keywords: ["collar", "formal", "shirt", "frame", "structure"]
+    title: "Innovation"
+    description: "To overcome VM scaling limitations, I architected OC-Loadtester—a hyperscale load-testing simulator leveraging distributed JMeter within a microservices framework. Additionally, I conceptualized and deployed an integrated deployment pipeline combining rolling update strategies with A/B testing capabilities."
+    note: "As the sole creator and architect of OC-Loadtester, I took on the challenge of ensuring zero-downtime, fully automated deployments. To achieve this, I conceptualized and engineered an absolute continuous deployment framework that seamlessly handles release management."
+    keywords: ["Innovation", "idea", "creative", "structure"]
   shirt:
-    title: "Shirt"
-    description: "The shirt forms the visual base of the portrait and anchors the entire composition. Its broader facets add weight, depth, and a calm modern palette."
-    note: "Use this section to express stability, professionalism, and design discipline."
-    keywords: ["shirt", "outfit", "torso", "base", "professional"]
+    title: "strong and weak point"
+    description: "Professional Strengths. Strong analytical and problem-solving skills with a systematic approach to complex technical challenges. High ownership, accountability, and a strong commitment to delivering results. Experienced in leading teams, improving collaboration, and driving continuous improvement. Fast learner with a strong interest in emerging technologies, AI, cloud infrastructure, and automation. Adaptable, proactive, and comfortable working in fast-paced and changing environments."
+    note: "Development Areas. Continuously improving prioritization and delegation to maintain focus across multiple initiatives. Developing stronger strategic communication and stakeholder management skills for broader leadership responsibilities. Further strengthening professional English communication for global and cross-cultural environments."
+    keywords: ["strong", "weak", "improvement", "base", "professional"]
 
 faqs:
+  # English - General & Navigation
   - question: "what is this page"
     answer: "This is a single-file portfolio prototype that combines an interactive polygon portrait, a detail modal, and a tiny chatbot powered by one shared YAML dataset."
   - question: "how does hover work"
@@ -40,13 +40,89 @@ faqs:
     answer: "Click any polygon area. The modal reads content from the YAML database and displays the matching zone information."
   - question: "what can the chatbot answer"
     answer: "It can answer questions about the portrait zones, profile summary, and the interaction behavior using keyword matching against the YAML data."
+
+  # English - Profile Information
+  - question: "who are you"
+    answer: "I'm Nukool Muangsoon, an IT Specialist Team Leader with a passion for technology, design, and music. I'm also known as 'Ra' among friends and family."
+  - question: "what is your full name"
+    answer: "My full name is Nukool Muangsoon. My nickname is 'Ra'."
+  - question: "what is your current role"
+    answer: "I am an IT Specialist Team Leader at AIS, responsible for overseeing system and IT infrastructure management."
+  - question: "where were you born"
+    answer: "I was born in 1991 in Sukhothai, Thailand."
+  - question: "what is your background"
+    answer: "I graduated in 2012 with a Bachelor's degree in Computer Science from North Bangkok University. I have 3+ years as IT Operations at Kasikornbank and 3+ years as IT Outsourcing System Engineer at AIS, then promoted to IT Specialist Team Leader."
+  
+  # English - Technical Skills
+  - question: "what are your technical skills"
+    answer: "I specialize in DevOps, Cloud Computing, and IT Infrastructure. Key tools: Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana, Ansible, Terraform, Bash."
+  - question: "devops skills"
+    answer: "Jenkins, GitLab, GitHub, Docker, Kubernetes, Ansible, Terraform, continuous integration and deployment pipelines."
+  - question: "cloud platforms"
+    answer: "AWS and Azure are my primary cloud platforms for infrastructure design and management."
+  - question: "monitoring and logging"
+    answer: "I use ELK Stack (Elasticsearch, Logstash, Kibana), Prometheus, and Grafana for system monitoring and analytics."
+  
+  # English - Innovation & Projects
+  - question: "what is oc-loadtester"
+    answer: "OC-Loadtester is my architecture innovation—a hyperscale load-testing simulator using distributed JMeter within a microservices framework. I architected it to overcome VM scaling limitations and ensure zero-downtime automated deployments."
+  - question: "your major innovation"
+    answer: "I conceptualized an integrated deployment pipeline combining rolling updates with A/B testing, and architected OC-Loadtester for hyperscale load testing and continuous deployment."
+  
+  # English - Hobbies & Soft Skills
+  - question: "what are your hobbies"
+    answer: "I'm a graphic designer, rapper (stage name: czman), and home cook. I love creating cartoon characters and logos, making music, and experimenting with new recipes."
+  - question: "graphic design"
+    answer: "I enjoy designing cartoon characters and logos. My design alias is 'froncduche'."
+  - question: "are you a musician"
+    answer: "Yes, I'm a rapper with the stage name 'czman'. I have a deep love for music and design."
+  - question: "home cook"
+    answer: "I'm passionate about cooking and love experimenting with new recipes and techniques in my free time."
+  
+  # English - Strengths & Development Areas
+  - question: "what are your strengths"
+    answer: "Strong analytical and problem-solving skills, high ownership and accountability, excellent team leadership, fast learner, adaptable, proactive, and comfortable in fast-paced environments."
+  - question: "development areas"
+    answer: "Continuously improving prioritization and delegation, strengthening strategic communication and stakeholder management, and enhancing professional English communication for global environments."
+  
+  # Thai - ข้อมูลทั่วไป
   - question: "ชื่อเล่น"
     answer: "ชื่อเล่นของฉันคือ 'ระ' ซึ่งเป็นชื่อที่เพื่อน ๆ และครอบครัวเรียกฉัน"
   - question: "คุณคือใคร"
-    answer: "system engineer, graphic designer, rapper , พ่อครัว"
+    answer: "ฉันชื่อ นูกูล เมืองสูง (Nukool Muangsoon) ทำงานเป็น IT Specialist Team Leader ที่ AIS มีความสนใจด้านเทคโนโลยี ดีไซน์ และเพลง"
+  - question: "ชื่อเต็ม"
+    answer: "ชื่อเต็มของฉันคือ นูกูล เมืองสูง ชื่อเล่นคือ 'ระ'"
   - question: "คุณทำงานอะไร"
     answer: "ฉันทำงานเป็น IT Specialist Team Leader ที่ดูแลด้านระบบและเทคโนโลยีสารสนเทศ"
-  - question: "system engineer"
-    answer: "ฉันเป็น system engineer ที่มีความเชี่ยวชาญในการออกแบบและดูแลระบบคอมพิวเตอร์และเครือข่าย"
+  - question: "พื้นหลัง"
+    answer: "เกิดปี 2534 ที่จังหวัดสุโขทัย สำเร็จการศึกษาปี 2555 สาขาวิทยาศาสตร์คอมพิวเตอร์ จากมหาวิทยาลัยหัวเมืองเหนือ ทำงาน IT Operations ที่ธนาคารกสิกรไทย 3 ปี และ IT Outsourcing System Engineer ที่ AIS 3 ปี แล้วเลื่อนตำแหน่งเป็น IT Specialist Team Leader"
+  
+  # Thai - ทักษะเทคนิค
+  - question: "ทักษะเทคนิค"
+    answer: "ความเชี่ยวชาญในด้าน DevOps, Cloud Computing และ IT Infrastructure โดยมีทักษะ Jenkins, GitLab, GitHub, Docker, Kubernetes, AWS, Azure, Oracle, Linux, Windows Server, ELK, Prometheus, Grafana, Ansible, Terraform, Bash"
+  - question: "devops"
+    answer: "Jenkins, GitLab, GitHub, Docker, Kubernetes, Ansible, Terraform และการออกแบบ continuous integration/deployment pipelines"
+  - question: "cloud"
+    answer: "ความชำนาญในการใช้ AWS และ Azure สำหรับการออกแบบและจัดการโครงสร้างพื้นฐาน"
+  
+  # Thai - นวัตกรรม
+  - question: "oc-loadtester"
+    answer: "โครงการนวัตกรรมของฉัน คือ OC-Loadtester ซึ่งเป็นระบบจำลองการทดสอบภาระงานขนาดใหญ่ โดยใช้ JMeter แบบ distributed ภายใต้ microservices framework เพื่อแก้ปัญหา VM scaling limitation"
+  - question: "นวัตกรรม"
+    answer: "สร้าง integrated deployment pipeline ที่รวมการอัพเดท rolling update กับ A/B testing และสร้าง OC-Loadtester เพื่อการทดสอบภาระงานขนาดใหญ่"
+  
+  # Thai - งานอดิเรก
+  - question: "งานอดิเรก"
+    answer: "ฉันเป็น graphic designer, rapper (ชื่อเวที: czman) และนักปรุงอาหาร ชอบออกแบบ cartoon characters และ logo ทำเพลง และทดลองสูตรอาหารใหม่ ๆ"
   - question: "graphic designer"
-    answer: "ฉันเป็น graphic designer ที่มีความสามารถในการออกแบบ cartoon characters design, logo design และงานกราฟิกอื่น ๆ โดยมีนามปากกาว่า froncduche"
+    answer: "ฉันเป็น graphic designer ที่มีความสามารถในการออกแบบ cartoon characters, logo design และงานกราฟิกอื่น ๆ โดยมีนามปากกาว่า froncduche"
+  - question: "rapper"
+    answer: "ฉันเป็น rapper ที่มีชื่อเวที 'czman' มีความรักในการทำเพลงและดีไซน์"
+  - question: "พ่อครัว"
+    answer: "ฉันชอบการปรุงอาหารและทดลองสูตรและเทคนิคการปรุงอาหารใหม่ ๆ ในเวลาว่าง"
+  
+  # Thai - จุดแข็งและพัฒนา
+  - question: "จุดแข็ง"
+    answer: "มีทักษะการวิเคราะห์และแก้ปัญหาที่ชัดเจน ความเป็นเจ้าของงาน ความรับผิดชอบสูง ประสบการณ์ในการนำทีม ผู้เรียนรู้ได้เร็ว มีความสามารถปรับตัว และสามารถทำงานในสภาวะที่เปลี่ยนแปลงได้"
+  - question: "พัฒนา"
+    answer: "พัฒนาการบริหารลำดับความสำคัญและการมอบหมายงาน การสื่อสารกลยุทธ์กับผู้มีส่วนได้ส่วนเสีย และพัฒนาการสื่อสารภาษาอังกฤษสำหรับสภาวะการทำงานระหว่างประเทศ"
