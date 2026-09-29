@@ -45,6 +45,12 @@
 			filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.32));
 		}
 
+		#profile-stage-image {
+			opacity: 1;
+			transition: opacity 0ms ease;
+			will-change: auto;
+		}
+
 		.poly-part {
 			transform-box: fill-box;
 			transform-origin: center;
@@ -434,7 +440,7 @@
 						</defs>
 
 						<rect x="36" y="28" width="648" height="804" rx="38" fill="none"></rect>
-						<image href="images/nukoolmu-profile.png" x="52" y="40" width="616" height="772" preserveAspectRatio="xMidYMid meet" opacity="0.95"></image>
+						<image id="profile-stage-image" href="images/profile/center.jpg" x="52" y="40" width="616" height="772" preserveAspectRatio="xMidYMid meet" opacity="0.95"></image>
 						<circle cx="360" cy="360" r="238" fill="rgba(17,24,39,0.03)"></circle>
 
 						<g class="zone-group" data-zone="hair">
@@ -623,6 +629,38 @@
 			let zoneData = {};
 			let profile = {};
 			let faqList = [];
+
+			const profileFrames = [
+				'images/profile/center.png',
+				'images/profile/left-step2.png',
+				'images/profile/left-step3.png',
+				'images/profile/left-step2.png',
+				'images/profile/center.png',
+				'images/profile/right_step1.png',
+				'images/profile/right_step2.png',
+				'images/profile/right_step1.png',
+				'images/profile/center.png',
+
+			];
+			let profileFrameIndex = 0;
+			const profileStageImage = document.getElementById('profile-stage-image');
+			const profileImageCache = profileFrames.map((src) => {
+				const img = new Image();
+				img.src = src;
+				return img;
+			});
+
+			function startProfileSequence() {
+				if (!profileStageImage) return;
+
+				profileStageImage.setAttribute('href', profileFrames[0]);
+				setInterval(() => {
+					profileFrameIndex = (profileFrameIndex + 1) % profileFrames.length;
+					profileStageImage.setAttribute('href', profileFrames[profileFrameIndex]);
+				}, 2800);
+			}
+
+			startProfileSequence();
 
 			function normalizePolygonOverlay() {
 				document.querySelectorAll('.poly-part').forEach((part) => {
